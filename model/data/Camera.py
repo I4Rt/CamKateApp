@@ -1,8 +1,8 @@
 from config import *
 from model.data.BaseData import *
+from model.abstracts.CameraApi import *
 
-
-class Camera(BaseData):
+class Camera(BaseData, CameraApi):
     __tablename__ = 'camera'
     
     route = Column(String, nullable=False, unique=True)
@@ -14,9 +14,10 @@ class Camera(BaseData):
     cam_sector_id = mapped_column(ForeignKey("cam_sector.id"), nullable=True)
     cam_sector = relationship("CamSector", back_populates="camera")
     
+
     def __init__(self, route, name, camera_matrix, coefs, id=None):
-        super().__init__(id)
-        self.route = route
+        BaseData.__init__(self, id)
+        CameraApi.__init__(self, route)
         self.name = name
         self.camera_matrix = camera_matrix
         self.coefs = coefs
