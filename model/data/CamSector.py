@@ -6,8 +6,8 @@ from model.data.Camera import *
 class CamSector(BaseData):
     __tablename__ = 'cam_sector'
     name = Column(String, nullable=False, unique=True)
-    camera = relationship("Camera", uselist=False, back_populates="parent")
-    boxes = relationship('Box', cascade="all,delete", backref='target', lazy='select')
+    camera = relationship("Camera", uselist=False, back_populates="cam_sector")
+    boxes = relationship('Box', cascade="all,delete", backref='cam_sector', lazy='select')
     
     def __init__(self, name, id=None):
         super().__init__(id)

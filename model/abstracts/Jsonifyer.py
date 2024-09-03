@@ -7,7 +7,7 @@ class Jsonifyer:
         result = json.dumps(self.getParamsList())
         return result
 
-    def getParamsList(self) -> object:
+    def getParamsList(self) -> object: 
         result = {}
         for i in inspect.getmembers(self):
                 if not i[0].endswith('_'):

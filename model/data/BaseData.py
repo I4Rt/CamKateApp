@@ -12,7 +12,6 @@ class BaseData(Jsonifyer, Base):
     id = Column(Integer, primary_key=True)
     
     def __init__(self, id = None):
-        Base
         Jsonifyer.__init__(self)
         self.id = id
              
