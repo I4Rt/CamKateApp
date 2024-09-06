@@ -4,6 +4,7 @@ from tools.testing import *
 import numpy as np
 
 def testCamApi(route=0):
+
     cam_api = CameraApi(route)
     
     assert_values(cam_api.connect(), True, 'Тест подключения')
@@ -45,6 +46,10 @@ def testDBRequests():
 
 if __name__ == '__main__':
     print("Тесты подключения к камере")
-    # testCamApi('rtsp://admin:ask226226@192.168.1.64/')
+    testCamApi(0)
+    
     print('\nТесты запросов к БД')
     testDBRequests()
+
+    
+
