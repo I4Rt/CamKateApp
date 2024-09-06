@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block baseStyles %}
+    <link href="../css/camera_edit_page_styles.css"  rel="stylesheet" />
+{% endblock %}
+
+{% block main %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-6">
+            <canvas class="markup_area">
+                <img src="basic_img.jpg" alt="" class="camera_image">
+            </canvas>
+            
+            <button class="btn btn-light" id="update_img_btn">Обновить</button>
+        </div>
+        <div class="col-6 action_cols">
+            <div class="row">
+                <div class="text w-50">Имя камеры</div>
+                <input class='w-50' type="text" id="cam_name">
+            </div>
+            <div class="row">
+                <div class="text w-50">Подключение</div>
+                <input class='w-50' type="text" id="cam_route">
+            </div>
+            <div class="row">
+                <div class="text w-50">Матрица коэфициентов</div>
+                <textarea class='w-50' type="text" id="cam_coefs"></textarea>
+            </div>
+            <div class="row">
+                <button class="btn btn-light  w-25">Сохранить</button>
+                <button class="btn btn-danger w-25">Удалить</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock main %}
+

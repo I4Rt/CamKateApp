@@ -20,3 +20,389 @@ INFO:werkzeug:[33mPress CTRL+C to quit[0m
 INFO:werkzeug: * Restarting with stat
 WARNING:werkzeug: * Debugger is active!
 INFO:werkzeug: * Debugger PIN: 116-912-039
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:4997
+ * Running on http://192.168.1.84:4997
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug: * Restarting with stat
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:4997
+ * Running on http://192.168.1.84:4997
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 712-744-872
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:4997
+ * Running on http://192.168.1.84:4997
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 712-744-872
+INFO:werkzeug: * Detected change in 'c:\\Users\\Марков Владимир\\Documents\\GitHub\\CamKateApp\\app.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 712-744-872
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 14:22:28] "[32mGET / HTTP/1.1[0m" 302 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 14:22:28] "[35m[1mGET /main HTTP/1.1[0m" 500 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 14:22:29] "GET /main?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 14:22:29] "GET /main?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 14:22:29] "GET /main?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 14:22:29] "[36mGET /main?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 14:22:56] "[35m[1mGET /main HTTP/1.1[0m" 500 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 14:22:56] "[36mGET /main?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 14:22:56] "[36mGET /main?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 14:22:57] "[36mGET /main?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 14:22:57] "[36mGET /main?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+INFO:werkzeug: * Detected change in 'c:\\Users\\Марков Владимир\\Documents\\GitHub\\CamKateApp\\app.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 712-744-872
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 14:23:56] "[35m[1mGET /main HTTP/1.1[0m" 500 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 14:23:57] "[36mGET /main?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 14:23:57] "[36mGET /main?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 14:23:57] "[36mGET /main?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 14:23:57] "[36mGET /main?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 14:23:58] "[35m[1mGET /main HTTP/1.1[0m" 500 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 14:23:58] "[36mGET /main?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 14:23:58] "[36mGET /main?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 14:23:59] "[36mGET /main?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 14:23:59] "[36mGET /main?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 14:24:20] "GET /main HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 14:24:20] "GET /css/bootstrap.min.css HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 14:24:20] "GET /img/logo.png HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 14:24:20] "GET /js/jquery-3.7.1.min.js HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 14:24:21] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 14:24:37] "[36mGET /css/bootstrap.min.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 14:24:38] "[33mGET /css/bootstrap.min.css.map HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 14:25:16] "[33mGET /css/boostrap.min.css HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 14:25:17] "[33mGET /css/bootstrap.min.css.map HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 14:25:20] "[33mGET /css/bootstrap.min.css.map HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 14:25:20] "[33mGET /css/bootstrap.min.css.map HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 14:25:20] "[33mGET /css/bootstrap.min.css.map HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 14:25:49] "[36mGET /css/bootstrap.min.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 14:25:49] "[33mGET /css/bootstrap.min.css.map HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 14:25:52] "[33mGET /css/bootstrap.min.css.map HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 14:25:52] "[33mGET /css/bootstrap.min.css.map HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 14:25:53] "[33mGET /css/bootstrap.min.css.map HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 14:26:34] "GET /main HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 14:26:34] "[36mGET /css/bootstrap.min.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 14:26:34] "[36mGET /js/jquery-3.7.1.min.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 14:26:46] "[33mGET /css/bootstrap.min.css.map HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 14:27:04] "[36mGET /img/logo.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 14:27:59] "GET /main HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 14:27:59] "[36mGET /css/bootstrap.min.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 14:27:59] "[36mGET /js/jquery-3.7.1.min.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 14:27:59] "[36mGET /img/logo.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 14:27:59] "[33mGET /css/bootstrap.min.css.map HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 15:21:44] "GET /main HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 15:21:44] "[36mGET /css/bootstrap.min.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 15:21:44] "[36mGET /js/jquery-3.7.1.min.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 15:21:44] "[36mGET /img/logo.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 15:21:44] "[33mGET /css/bootstrap.min.css.map HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 15:22:31] "GET /main HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 15:22:31] "[36mGET /css/bootstrap.min.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 15:22:31] "[36mGET /js/jquery-3.7.1.min.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 15:22:31] "[36mGET /img/logo.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 15:22:31] "[33mGET /css/bootstrap.min.css.map HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 15:22:58] "GET /main HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 15:22:58] "[36mGET /css/bootstrap.min.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 15:22:59] "[36mGET /js/jquery-3.7.1.min.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 15:22:59] "[36mGET /img/logo.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 15:22:59] "[33mGET /css/bootstrap.min.css.map HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 15:23:28] "GET /main HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 15:23:28] "[36mGET /css/bootstrap.min.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 15:23:28] "[36mGET /js/jquery-3.7.1.min.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 15:23:28] "[36mGET /img/logo.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 15:23:28] "[33mGET /css/bootstrap.min.css.map HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 15:23:55] "GET /main HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 15:23:55] "[36mGET /css/bootstrap.min.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 15:23:55] "[36mGET /js/jquery-3.7.1.min.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 15:23:55] "[36mGET /img/logo.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 15:23:55] "[33mGET /css/bootstrap.min.css.map HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 15:24:08] "GET /main HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 15:24:08] "[36mGET /css/bootstrap.min.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 15:24:08] "[36mGET /js/jquery-3.7.1.min.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 15:24:08] "[36mGET /img/logo.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 15:24:08] "[33mGET /css/bootstrap.min.css.map HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 15:24:30] "GET /main HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 15:24:30] "[36mGET /css/bootstrap.min.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 15:24:31] "[36mGET /js/jquery-3.7.1.min.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 15:24:31] "[33mGET /css/bootstrap.min.css.map HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 15:26:39] "GET /main HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 15:26:39] "[36mGET /css/bootstrap.min.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 15:26:39] "[36mGET /js/jquery-3.7.1.min.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 15:26:39] "[36mGET /img/logo.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 15:26:39] "[33mGET /css/bootstrap.min.css.map HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 15:27:02] "GET /main HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 15:27:02] "[36mGET /css/bootstrap.min.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 15:27:03] "[36mGET /js/jquery-3.7.1.min.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 15:27:03] "[36mGET /img/logo.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 15:27:14] "GET /main HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 15:27:14] "[36mGET /css/bootstrap.min.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 15:27:14] "[36mGET /js/jquery-3.7.1.min.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 15:27:15] "[36mGET /img/logo.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 15:27:36] "GET /main HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 15:27:36] "[36mGET /css/bootstrap.min.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 15:27:36] "[36mGET /js/jquery-3.7.1.min.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 15:27:36] "[36mGET /img/logo.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 15:27:51] "GET /main HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 15:27:52] "[36mGET /css/bootstrap.min.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 15:27:52] "[36mGET /img/logo.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 15:27:52] "[36mGET /js/jquery-3.7.1.min.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 15:28:06] "GET /main HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 15:28:06] "[36mGET /css/bootstrap.min.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 15:28:06] "[36mGET /js/jquery-3.7.1.min.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 15:28:06] "[36mGET /img/logo.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 15:28:07] "GET /main HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 15:28:07] "[36mGET /css/bootstrap.min.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 15:28:07] "GET /main HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 15:28:07] "[36mGET /js/jquery-3.7.1.min.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 15:28:07] "[36mGET /css/bootstrap.min.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 15:28:07] "[36mGET /js/jquery-3.7.1.min.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 15:28:07] "GET /img/logo.png HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 15:28:09] "[36mGET /css/bootstrap.min.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 15:28:09] "[33mGET /css/bootstrap.min.css.map HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 15:28:37] "GET /main HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 15:28:37] "[36mGET /css/bootstrap.min.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 15:28:38] "[36mGET /js/jquery-3.7.1.min.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 15:28:38] "[36mGET /img/logo.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 15:28:38] "[33mGET /css/bootstrap.min.css.map HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 15:30:38] "GET /main HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 15:30:38] "[36mGET /css/bootstrap.min.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 15:30:38] "[36mGET /js/jquery-3.7.1.min.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 15:30:38] "[36mGET /img/logo.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 15:30:38] "[33mGET /css/bootstrap.min.css.map HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 15:30:52] "GET /main HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 15:30:52] "[36mGET /css/bootstrap.min.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 15:30:52] "[36mGET /js/jquery-3.7.1.min.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 15:30:52] "[36mGET /img/logo.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 15:30:52] "[33mGET /css/bootstrap.min.css.map HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 15:31:14] "GET /main HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 15:31:14] "[36mGET /css/bootstrap.min.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 15:31:15] "[36mGET /js/jquery-3.7.1.min.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 15:31:15] "[36mGET /img/logo.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 15:31:15] "[33mGET /css/bootstrap.min.css.map HTTP/1.1[0m" 404 -
+INFO:werkzeug: * Detected change in 'c:\\Users\\Марков Владимир\\Documents\\GitHub\\CamKateApp\\web_contollers\\pages\\main_page_controller.py', reloading
+INFO:werkzeug: * Restarting with stat
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:4997
+ * Running on http://192.168.1.84:4997
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 712-744-872
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 15:50:22] "GET /main HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 15:50:22] "[36mGET /css/bootstrap.min.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 15:50:22] "GET /css/main_page_styles.css HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 15:50:22] "[36mGET /js/jquery-3.7.1.min.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 15:50:22] "[36mGET /img/logo.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 15:50:22] "[33mGET /css/bootstrap.min.css.map HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 15:51:13] "GET /main HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 15:51:13] "[36mGET /css/bootstrap.min.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 15:51:13] "[36mGET /css/main_page_styles.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 15:51:13] "[36mGET /js/jquery-3.7.1.min.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 15:51:13] "[36mGET /img/logo.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 15:51:13] "[33mGET /css/bootstrap.min.css.map HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 15:51:59] "GET /main HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 15:51:59] "[36mGET /css/bootstrap.min.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 15:52:00] "[36mGET /css/main_page_styles.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 15:52:00] "[36mGET /js/jquery-3.7.1.min.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 15:52:00] "GET /img/logo.png HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 15:52:00] "[33mGET /css/bootstrap.min.css.map HTTP/1.1[0m" 404 -
+INFO:werkzeug: * Detected change in 'c:\\Users\\Марков Владимир\\Documents\\GitHub\\CamKateApp\\config.py', reloading
+INFO:werkzeug: * Restarting with stat
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:4997
+ * Running on http://192.168.1.84:4997
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 712-744-872
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 16:06:05] "[35m[1mGET /main HTTP/1.1[0m" 500 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 16:06:05] "[36mGET /main?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 16:06:05] "[36mGET /main?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 16:06:05] "[36mGET /main?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 16:06:06] "[36mGET /main?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+INFO:werkzeug: * Detected change in 'c:\\Users\\Марков Владимир\\Documents\\GitHub\\CamKateApp\\model\\data\\CamSector.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 712-744-872
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 16:08:31] "[35m[1mGET /main HTTP/1.1[0m" 500 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 16:08:32] "[36mGET /main?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 16:08:32] "[36mGET /main?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 16:08:32] "[36mGET /main?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 16:08:32] "[36mGET /main?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+INFO:werkzeug: * Detected change in 'c:\\Users\\Марков Владимир\\Documents\\GitHub\\CamKateApp\\model\\data\\CamSector.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 712-744-872
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 16:09:07] "GET /main HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 16:09:08] "[36mGET /css/bootstrap.min.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 16:09:08] "GET /css/main_page_styles.css HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 16:09:08] "[36mGET /js/jquery-3.7.1.min.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 16:09:08] "[36mGET /img/logo.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 16:09:08] "[33mGET /css/bootstrap.min.css.map HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 16:09:39] "GET /main HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 16:09:39] "[36mGET /css/bootstrap.min.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 16:09:39] "[36mGET /css/main_page_styles.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 16:09:39] "[36mGET /js/jquery-3.7.1.min.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 16:09:39] "[36mGET /img/logo.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 16:09:39] "[33mGET /css/bootstrap.min.css.map HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 16:10:13] "GET /main HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 16:10:13] "[36mGET /css/bootstrap.min.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 16:10:14] "GET /css/main_page_styles.css HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 16:10:14] "[36mGET /js/jquery-3.7.1.min.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 16:10:14] "[36mGET /img/logo.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 16:10:14] "[33mGET /css/bootstrap.min.css.map HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 16:12:48] "GET /main HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 16:12:48] "[36mGET /css/bootstrap.min.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 16:12:48] "GET /css/main_page_styles.css HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 16:12:48] "[36mGET /js/jquery-3.7.1.min.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 16:12:48] "[36mGET /img/logo.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 16:12:48] "[33mGET /css/bootstrap.min.css.map HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 16:13:13] "GET /main HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 16:13:13] "[36mGET /css/bootstrap.min.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 16:13:13] "[36mGET /css/main_page_styles.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 16:13:13] "[36mGET /js/jquery-3.7.1.min.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 16:13:13] "[36mGET /img/logo.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 16:13:13] "[33mGET /css/bootstrap.min.css.map HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 16:13:48] "GET /main HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 16:13:48] "[36mGET /css/bootstrap.min.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 16:13:49] "GET /css/main_page_styles.css HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 16:13:49] "[36mGET /js/jquery-3.7.1.min.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 16:13:49] "[36mGET /img/logo.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 16:13:49] "[33mGET /css/bootstrap.min.css.map HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 16:16:13] "GET /main HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 16:16:13] "[36mGET /css/bootstrap.min.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 16:16:14] "[36mGET /css/main_page_styles.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 16:16:14] "[36mGET /js/jquery-3.7.1.min.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 16:16:14] "[36mGET /img/logo.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 16:16:14] "[33mGET /css/bootstrap.min.css.map HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 16:16:59] "GET /main HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 16:16:59] "[36mGET /css/bootstrap.min.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 16:17:00] "GET /css/main_page_styles.css HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 16:17:00] "[36mGET /js/jquery-3.7.1.min.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 16:17:00] "[36mGET /img/logo.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 16:17:00] "[33mGET /css/bootstrap.min.css.map HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 16:17:01] "GET /main HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 16:17:01] "[36mGET /css/bootstrap.min.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 16:17:01] "[36mGET /css/main_page_styles.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 16:17:01] "[36mGET /js/jquery-3.7.1.min.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 16:17:01] "[36mGET /img/logo.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 16:17:01] "[33mGET /css/bootstrap.min.css.map HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 16:17:02] "GET /main HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 16:17:02] "[36mGET /css/bootstrap.min.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 16:17:02] "[36mGET /css/main_page_styles.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 16:17:02] "[36mGET /js/jquery-3.7.1.min.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 16:17:02] "[33mGET /css/bootstrap.min.css.map HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 16:17:02] "[36mGET /img/logo.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 16:17:05] "GET /main HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 16:17:05] "[36mGET /css/bootstrap.min.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 16:17:05] "GET /css/main_page_styles.css HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 16:17:05] "[36mGET /js/jquery-3.7.1.min.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 16:17:05] "[36mGET /img/logo.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 16:17:05] "[33mGET /css/bootstrap.min.css.map HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 16:17:43] "GET /main HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 16:17:43] "[36mGET /css/bootstrap.min.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 16:17:43] "GET /css/main_page_styles.css HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 16:17:43] "[36mGET /js/jquery-3.7.1.min.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 16:17:43] "[36mGET /img/logo.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 16:17:43] "[33mGET /css/bootstrap.min.css.map HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 16:18:27] "GET /main HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 16:18:27] "[36mGET /css/bootstrap.min.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 16:18:27] "GET /css/main_page_styles.css HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 16:18:27] "[36mGET /js/jquery-3.7.1.min.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 16:18:27] "[36mGET /img/logo.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 16:18:27] "[33mGET /css/bootstrap.min.css.map HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 16:18:59] "GET /main HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 16:18:59] "[36mGET /css/bootstrap.min.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 16:18:59] "GET /css/main_page_styles.css HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 16:18:59] "[36mGET /js/jquery-3.7.1.min.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 16:18:59] "[36mGET /img/logo.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 16:19:05] "GET /main HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 16:19:05] "[36mGET /css/bootstrap.min.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 16:19:06] "GET /css/main_page_styles.css HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 16:19:06] "[36mGET /js/jquery-3.7.1.min.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 16:19:06] "[36mGET /img/logo.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 16:19:29] "GET /main HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 16:19:29] "[36mGET /css/bootstrap.min.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 16:19:30] "GET /css/main_page_styles.css HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 16:19:30] "[36mGET /js/jquery-3.7.1.min.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 16:19:30] "[36mGET /img/logo.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 16:19:31] "GET /main HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 16:19:31] "[36mGET /css/bootstrap.min.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 16:19:31] "[36mGET /css/main_page_styles.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 16:19:31] "[36mGET /js/jquery-3.7.1.min.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 16:19:31] "GET /main HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 16:19:31] "[36mGET /css/bootstrap.min.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 16:19:31] "[36mGET /css/main_page_styles.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 16:19:31] "[36mGET /js/jquery-3.7.1.min.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 16:19:31] "GET /img/logo.png HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 16:19:31] "GET /main HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 16:19:32] "[36mGET /css/bootstrap.min.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 16:19:32] "[36mGET /css/main_page_styles.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 16:19:32] "[36mGET /js/jquery-3.7.1.min.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 16:19:32] "[36mGET /img/logo.png HTTP/1.1[0m" 304 -
+INFO:werkzeug: * Detected change in 'c:\\Users\\Марков Владимир\\Documents\\GitHub\\CamKateApp\\model\\__init__.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 712-744-872
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 16:45:02] "GET /main HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 16:45:03] "[36mGET /css/bootstrap.min.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 16:45:03] "[36mGET /css/main_page_styles.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 16:45:03] "[36mGET /js/jquery-3.7.1.min.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 16:45:03] "[36mGET /img/logo.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 16:45:13] "[36mGET /css/bootstrap.min.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 16:45:13] "[36mGET /css/main_page_styles.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 16:45:13] "[33mGET /css/bootstrap.min.css.map HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 16:45:55] "GET /main HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 16:45:55] "[36mGET /css/bootstrap.min.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 16:45:55] "[36mGET /js/jquery-3.7.1.min.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 16:45:55] "[36mGET /img/logo.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 16:45:55] "GET /css/main_page_styles.css HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 17:00:27] "GET /editCamera?new=true HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 17:00:27] "[36mGET /css/bootstrap.min.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 17:00:27] "GET /css/camera_edit_page_styles.css HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 17:00:27] "[33mGET /basic_img.jpg HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 17:00:27] "[36mGET /img/logo.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 17:00:43] "GET /editCamera?new=true HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 17:00:44] "[36mGET /css/bootstrap.min.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 17:00:44] "[36mGET /css/camera_edit_page_styles.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 17:00:44] "[36mGET /js/jquery-3.7.1.min.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 17:00:44] "[33mGET /basic_img.jpg HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 17:00:44] "[36mGET /img/logo.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 17:01:48] "GET /editCamera?new=true HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 17:01:48] "[36mGET /css/bootstrap.min.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 17:01:48] "[36mGET /css/camera_edit_page_styles.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 17:01:49] "[33mGET /basic_img.jpg HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 17:01:49] "[36mGET /js/jquery-3.7.1.min.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 17:01:49] "[36mGET /img/logo.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 17:02:42] "GET /editCamera?new=true HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 17:02:42] "[36mGET /css/bootstrap.min.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 17:02:42] "[36mGET /css/camera_edit_page_styles.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 17:02:43] "[33mGET /basic_img.jpg HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 17:02:43] "[36mGET /js/jquery-3.7.1.min.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 17:02:43] "[36mGET /img/logo.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 17:03:42] "GET /editCamera?new=true HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 17:03:42] "[36mGET /css/bootstrap.min.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 17:03:42] "GET /css/camera_edit_page_styles.css HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 17:03:43] "[33mGET /basic_img.jpg HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 17:03:43] "[36mGET /js/jquery-3.7.1.min.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 17:03:43] "[36mGET /img/logo.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 17:07:57] "GET /main HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 17:07:57] "[36mGET /css/bootstrap.min.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 17:07:57] "GET /css/main_page_styles.css HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 17:07:57] "[36mGET /js/jquery-3.7.1.min.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 17:07:57] "[36mGET /img/logo.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 17:08:10] "GET /editCamera?new=true HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 17:08:10] "[36mGET /css/bootstrap.min.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 17:08:10] "[36mGET /js/jquery-3.7.1.min.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 17:08:10] "[33mGET /basic_img.jpg HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 17:08:10] "[36mGET /img/logo.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2024 17:08:10] "[36mGET /css/camera_edit_page_styles.css HTTP/1.1[0m" 304 -
