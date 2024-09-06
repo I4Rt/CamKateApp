@@ -9,9 +9,16 @@ class Jsonifyer:
 
     def getParamsList(self) -> object: 
         result = {}
-        for i in inspect.getmembers(self):
-                if not i[0].endswith('_'):
-                    if not inspect.ismethod(i[1]):
-                        if type(i[1]) in self.types:
-                            result[i[0]] = i[1]
+        seq = iter(inspect.getmembers(self))
+        while True:
+            try:
+                i = seq.next()
+            except StopIteration:
+                break
+            except Exception:
+                pass
+            if not i[0].endswith('_'):
+                if not inspect.ismethod(i[1]):
+                    if type(i[1]) in self.types:
+                        result[i[0]] = i[1]        
         return result

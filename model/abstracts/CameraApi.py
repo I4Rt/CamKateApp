@@ -9,15 +9,18 @@ class CameraApi:
         self.stream = None
         
         self.isConnected = False
-        self.streamError = False
+        self.error = False
         
     
     def connect(self, force=False):
         try:
             if force or not self.isConnected:
                 self.stream = cv2.VideoCapture(self.route)
-                self.error = False
-                self.isConnected = True
+                if self.stream.isOpened():
+                    self.error = False
+                    self.isConnected = True
+                else:
+                    raise Exception ('Cannot connect to camera')
             return True
         except Exception as e:
             logger.info(f'Error: connecting to the camera | {e}')

@@ -10,7 +10,7 @@ class Box(BaseData):
     y1 = Column(Double, nullable=False) # in percents
     x2 = Column(Double, nullable=False) # in percents
     y2 = Column(Double, nullable=False) # in percents
-    cam_sector_id = Column(Integer, ForeignKey('cam_sector.id', ondelete="CASCADE"), nullable=True)
+    cam_sector_id = Column(Integer, ForeignKey('cam_sector.id', ondelete="CASCADE"), nullable=False)
     
     def __init__(self, name, x1, y1, x2, y2, id=None):
         super().__init__(id)
