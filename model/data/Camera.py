@@ -6,7 +6,7 @@ class Camera(BaseData, CameraApi):
     __tablename__ = 'camera'
     
     route = Column(String, nullable=False, unique=True)
-    name = Column(String, nullable=False, unique=True)
+    # name = Column(String, nullable=False, unique=True) # not ness
     camera_matrix = Column(String, nullable=False,  unique=False)
     coefs = Column(String, nullable=False,  unique=False)
 
@@ -35,3 +35,6 @@ class Camera(BaseData, CameraApi):
         cm = [list(map(float, group.split(','))) for group in cm.split('},{')]
         coefs = [float(i) for i in coefs.split(',')]
         return cm, coefs
+    
+    def getInfo(self):
+        return [self.route, self.camera_matrix, self.coefs]

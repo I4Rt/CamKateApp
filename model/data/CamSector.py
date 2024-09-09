@@ -19,4 +19,6 @@ class CamSector(BaseData):
         
         
         
-    
+    def getCamera(self):
+        with DBSessionMaker.getSession() as ses:
+            return ses.query(Camera).filter_by(cam_sector_id=self.id).first()

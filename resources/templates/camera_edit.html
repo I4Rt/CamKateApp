@@ -10,7 +10,7 @@
     <div class="row">
         <div class="col-6">
             <canvas class="markup_area">
-                <img src="basic_img.jpg" alt="" class="camera_image">
+                <img src="../img/basic_img.jpg" alt="" class="camera_image">
             </canvas>
             
             <button class="btn btn-light" id="update_img_btn">Обновить</button>
@@ -18,7 +18,7 @@
         <div class="col-6 action_cols">
             <div class="row">
                 <div class="text w-50">Имя камеры</div>
-                <input class='w-50' type="text" id="cam_name">
+                <input class='w-50' type="text" id="cam_name" value="{{cam.name}}">
             </div>
             <div class="row">
                 <div class="text w-50">Подключение</div>
@@ -26,15 +26,63 @@
             </div>
             <div class="row">
                 <div class="text w-50">Матрица коэфициентов</div>
-                <textarea class='w-50' type="text" id="cam_coefs"></textarea>
+                <input type="file" id="coefFile" class="w-50 p-1 border" style="background-color: #f8f9fa !important; border-radius: 3px;"> 
+            </div>
+            <textarea class='row w-100 m-2' type="text" id="cam_coefs" disabled></textarea>
+            <div class="row text w-50">
+                <div>Контроль ям</div>
             </div>
             <div class="row">
-                <button class="btn btn-light  w-25">Сохранить</button>
-                <button class="btn btn-danger w-25">Удалить</button>
+                <div class="col boxesColumn" >
+                    Отсутствуют
+                </div>
+            </div>
+            <div class="row flex-row-reverse">
+                <button class="btn btn-danger w-25 m-2">Удалить</button>
+                <button class="btn btn-success w-25 m-2" disabled>Сохранить</button>
             </div>
         </div>
     </div>
 </div>
 
 {% endblock main %}
+
+{% block baseScripts %}
+    <script>
+        camera= [];
+        let boxes = new Map();
+        function displayBoxList(boxList){
+            $('.boxesColumn').empty()
+            boxList.forEach(function(val, key, map){
+                $('.boxesColumn').append(`<div class="boxRow">
+                    <input type="text" class="boxName w-50" onchange="" value="${val[4]}">
+                    <div class="buttonsSector">
+                        <button class="editBox btn btn-primary" onclick="editBox(${key})">edit</button>
+                        <button class="deleteBox btn btn-danger" onclick="delBox(${key})">del</button>
+                        <button class="conflimBox btn btn-success" disabled onclick="saveBox(${key})">ok</button>
+                    </div>
+                  </div>`)
+            })
+        }
+        {% if cam is defined and cam %}
+            
+            {% if cam.getCamera() %}
+                camera = ['{{cam.name}}', {{cam.getCamera().getInfo() | tojson}}]
+                $('#cam_route').val(camera[1][0])
+                $('#cam_coefs').text(`${camera[1][1]}\n${camera[1][2]}`)
+            {% else %}
+                camera = ['{{cam.name}}', []]
+            {% endif %}
+            $('#cam_name').val(camera[0])
+
+            {% for box in cam.getBoxes() %}
+            boxes.set({{box.id}}, [{{box.x1}}, {{box.y1}}, {{box.x2}}, {{box.y2}}, '{{box.name}}'] );
+            {% endfor %}
+            displayBoxList(boxes)
+        {% endif %}
+
+        
+    </script>
+{% endblock %}
+
 

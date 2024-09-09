@@ -25,5 +25,12 @@ def camList():
 @app.route('/editCamera', methods=['get'])
 @cross_origin()
 def editCamera():
-    return render_template('camera_edit.html')
+    isNew = request.args.get('new')
+    if isNew:
+        return render_template('camera_edit.html', cam = None)
+    requestedCamId = request.args.get('id')
+    camSearchResult = CamSector.getByID(requestedCamId)
+    return render_template('camera_edit.html', cam=camSearchResult)
+    
+    
 

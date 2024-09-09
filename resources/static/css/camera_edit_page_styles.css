@@ -1,7 +1,7 @@
 
 
 .markup_area{
-    background-color: rgb(182, 182, 182);
+    background-color:   none;
     border:             1px solid rgb(58, 58, 58);
     padding:            0px !important;
     width:              100%;
@@ -20,4 +20,32 @@
 
 .action_cols>.row{
     margin-bottom: 8px;
+}
+
+.boxesColumn{
+
+}
+.boxesColumn>div:nth-child(odd){
+    background-color: rgb(231, 231, 231);
+}
+
+.boxRow{
+    padding: 2px 5px 2px 5px;
+    display:flex;
+    gap:5px;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+.boxRow>.buttonSector{
+    display:flex;
+    gap:5px;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.boxRow>.buttonSector>button{
+    margin-left: 5px;
+    width:fit-content;
 }
