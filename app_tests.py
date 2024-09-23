@@ -1,5 +1,6 @@
 from model.abstracts.CameraApi import *
 from model.abstracts.TestsDB import *
+from model.abstracts.CameraHolder import *
 from tools.testing import *
 import numpy as np
 
@@ -44,12 +45,41 @@ def testDBRequests():
     assert_values(tests_db.delete_camera(), True, 'Тест удаления камеры')
     assert_values(tests_db.delete_camera_sec(), True, 'Тест удаления сектора')    
 
-if __name__ == '__main__':
-    print("Тесты подключения к камере")
-    testCamApi(0)
+def camHolderTest():
+    CameraHolder.getInstance().addCameras(Camera.getAll())
+    lastCam = Camera.getLast()
+    res1 = assert_values(CameraHolder.getInstance().checkCamera(lastCam), True, 'Проверка наличия камеры')
+    if res1:
+        CameraHolder.getInstance().delCamera(lastCam)
+        res2 = assert_values(CameraHolder.getInstance().checkCamera(lastCam), False, 'Проверка удаления камеры')
     
-    print('\nТесты запросов к БД')
-    testDBRequests()
+    res = CameraHolder.getInstance().getCameraFrame(lastCam)
+    assert_values(res[0], False, 'Проверка взятия картинки с ошибкой')
+    
+    i = 1
+    while i < 11:
+        print(f'Цикл {i}')
+        CameraHolder.getInstance().addCameras(Camera.getAll())
+        res = CameraHolder.getInstance().refreshCameraConnection(lastCam)
+        assert_values(res, True, 'Проверка подключения к стриму')
+        
+        res = CameraHolder.getInstance().getCameraFrame(lastCam)
+        assert_values(res[0], True, 'Проверка взятия картинки')
+        
+        CameraHolder.getInstance().delCamera(lastCam)
+        res = assert_values(CameraHolder.getInstance().checkCamera(lastCam), False, 'Проверка удаления камеры')
+        i += 1
+    
+
+if __name__ == '__main__':
+    # print("Тесты подключения к камере")
+    # testCamApi(0)
+    
+    # print('\nТесты запросов к БД')
+    # testDBRequests()
+    
+    print('\nТесты подключений к камерам')
+    camHolderTest()
 
     
 

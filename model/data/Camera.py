@@ -34,4 +34,16 @@ class Camera(BaseData, CameraApi):
         coefs = self.coefs.strip('{}')
         cm = [list(map(float, group.split(','))) for group in cm.split('},{')]
         coefs = [float(i) for i in coefs.split(',')]
+<<<<<<< Updated upstream
         return cm, coefs
+=======
+        return cm, coefs
+    
+    def getInfo(self):
+        return [self.route, self.camera_matrix, self.coefs]
+    
+    def __eq__(self, other:"Camera"):
+        if type(other) == Camera:
+            return self.id == other.id 
+        return False
+>>>>>>> Stashed changes

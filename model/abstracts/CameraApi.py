@@ -3,11 +3,14 @@ import cv2
 from config import *
 
 class CameraApi:
-    def __init__(self, route) -> None:
+    
+    stream = None
+    isConnected = False
+    error = False
         
+    def __init__(self, route) -> None:
         self.route = route
         self.stream = None
-        
         self.isConnected = False
         self.error = False
         
@@ -15,7 +18,8 @@ class CameraApi:
     def connect(self, force=False):
         try:
             if force or not self.isConnected:
-                self.stream = cv2.VideoCapture(self.route)
+                
+                self.stream = cv2.VideoCapture(int(self.route) if self.route.isdigit() else self.route)
                 if self.stream.isOpened():
                     self.error = False
                     self.isConnected = True
