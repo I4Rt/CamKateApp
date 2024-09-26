@@ -13,11 +13,11 @@ class TestsDB():
             return False
     def save_camera(self):
         try:
-            camera = Camera('test_route', 'test_name', [1,2,3], [4,5,6])
+            camera = Camera('test_route', [1,2,3], [4,5,6])
             camera.save()
             last_camera = Camera.getLast()
-            return camera.name == last_camera.name
-        except Exception:
+            return camera.route == last_camera.route
+        except Exception as e:
             return False 
     def save_camera_sec(self):
         try:

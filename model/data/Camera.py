@@ -6,7 +6,7 @@ class Camera(BaseData): #, CameraApi):
     __tablename__ = 'camera'
     
     route = Column(String, nullable=False, unique=True)
-    name = Column(String, nullable=False, unique=True)
+    # name = Column(String, nullable=False, unique=True) # not ness
     camera_matrix = Column(String, nullable=False,  unique=False)
     coefs = Column(String, nullable=False,  unique=False)
 
@@ -15,11 +15,10 @@ class Camera(BaseData): #, CameraApi):
     cam_sector = relationship("CamSector", back_populates="camera")
     
 
-    def __init__(self, route, name, camera_matrix, coefs, id=None):
+    def __init__(self, route, camera_matrix, coefs, id=None):
         BaseData.__init__(self, id)
         # CameraApi.__init__(self, route)
         self.route = route
-        self.name = name
         self.camera_matrix = camera_matrix
         self.coefs = coefs
         
@@ -44,4 +43,3 @@ class Camera(BaseData): #, CameraApi):
         if type(other) == Camera:
             return self.id == other.id 
         return False
-

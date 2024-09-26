@@ -13,6 +13,12 @@ class CamSector(BaseData):
         super().__init__(id)
         self.name = name
         
+    def getBoxes(self) -> List[Box]:
+        with DBSessionMaker.getSession() as ses:
+            return ses.query(Box).filter_by(cam_sector_id=self.id).all()
         
         
-    
+        
+    def getCamera(self):
+        with DBSessionMaker.getSession() as ses:
+            return ses.query(Camera).filter_by(cam_sector_id=self.id).first()

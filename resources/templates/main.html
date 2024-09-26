@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block baseStyles %}
+    <link href="../css/main_page_styles.css"  rel="stylesheet" />
+{% endblock %}
+
+{% block main %}
+
+    <div class="container">
+        <div class="d-flex flex-row flex-wrap align-items-start p-3 ">
+            {% for sector in sectors %}
+                <div class="sector">
+                    <div class="sectorName">{{sector.name}}</div>
+                    <ul class="boxesList">
+                        {% for box in sector.getBoxes() %}
+                            <li class="boxInfo d-flex flex-row justify-content-between">
+                                <div>{{box.name}}</div>
+                                <div>СТАТУС</div>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+{% endblock main %}
+

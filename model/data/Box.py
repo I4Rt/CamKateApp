@@ -5,12 +5,14 @@ class Box(BaseData):
     __tablename__ = 'box'
     
     
-    name = Column(String, nullable=False, unique=True)
+    name = Column(String, nullable=False)
     x1 = Column(Double, nullable=False) # in percents
     y1 = Column(Double, nullable=False) # in percents
     x2 = Column(Double, nullable=False) # in percents
     y2 = Column(Double, nullable=False) # in percents
     cam_sector_id = Column(Integer, ForeignKey('cam_sector.id', ondelete="CASCADE"), nullable=False)
+    
+    __table_args__ = (UniqueConstraint('cam_sector_id', 'name'), )
     
     def __init__(self, name, x1, y1, x2, y2, id=None):
         super().__init__(id)

@@ -3,7 +3,7 @@ from flask import Flask
 from sqlalchemy import *
 from sqlalchemy.orm import *
 from sqlalchemy.ext.declarative import declarative_base, declared_attr
-
+from sqlalchemy.schema import UniqueConstraint
 from flask_cors import CORS, cross_origin
 
 from multiprocessing import Manager

@@ -27,10 +27,7 @@ class BaseData(Jsonifyer, Base):
     @classmethod 
     def getAll(cls) -> List["BaseData"]:
         with DBSessionMaker.getSession() as ses:
-            # print('\ngetAll')
-            # print(datetime.now())
             value = ses.query(cls).all()
-            # print(datetime.now())
             return value
 
     @classmethod
