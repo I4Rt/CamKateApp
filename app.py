@@ -2,8 +2,10 @@ from config import *
 from model.data import *
 from web_contollers import *
 from model.abstracts.CameraApi import *
+from tools.CameraSettings import CameraSettings
 
 if __name__ == "__main__":
+
     with app.app_context():
         
         Base.metadata.create_all(e)

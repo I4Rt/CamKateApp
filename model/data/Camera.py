@@ -15,10 +15,10 @@ class Camera(BaseData, CameraApi):
     cam_sector = relationship("CamSector", back_populates="camera")
     
 
-    def __init__(self, route, name, camera_matrix, coefs, id=None):
+    def __init__(self, route, camera_matrix, coefs, id=None):
         BaseData.__init__(self, id)
         CameraApi.__init__(self, route)
-        self.name = name
+        # self.name = name
         self.camera_matrix = camera_matrix
         self.coefs = coefs
         

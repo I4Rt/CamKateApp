@@ -9,11 +9,13 @@
 <div class="container">
     <div class="row">
         <div class="col-6">
-            <canvas class="markup_area">
+            <div id="ggg" class="w-100 h-100" style="position: relative; max-height: 350px;" >
                 <img src="../img/basic_img.jpg" alt="" class="camera_image">
-            </canvas>
-            
+                <canvas id="canvas" class="markup_area"></canvas>
+                <canvas id="canvas_draw" class="markup_area"></canvas>    
+            </div>
             <button class="btn btn-light" id="update_img_btn">Обновить</button>
+            <button class="btn btn-light" id="clear_rect" onclick="removeBox(); defaultValues()" style="display: none;">Очистить</button>
         </div>
         <div class="col-6 action_cols">
             <div class="row">
@@ -31,6 +33,7 @@
             <textarea class='row w-100 m-2' type="text" id="cam_coefs" disabled></textarea>
             <div class="row text w-50">
                 <div>Контроль ям</div>
+                <button onclick="addBox()">Добавить яму</button>
             </div>
             <div class="row">
                 <div class="col boxesColumn" >
@@ -51,19 +54,236 @@
     <script>
         camera= [];
         let boxes = new Map();
+
+        let canvas = document.getElementById('canvas');
+        let canvasDraw = document.getElementById('canvas_draw');
+        let defaultColor = 'rgb(255, 230, 0)';
+        let highlightColor = 'rgb(44,224,23)';
+
+        let ctx = null;
+        let ctxDraw = null;
+        if (canvas.getContext) {
+            console.log('getContext');
+            ctx = canvas.getContext("2d");
+        }
+        if (canvasDraw.getContext) {
+            console.log('getContext');
+            ctxDraw = canvasDraw.getContext("2d");
+        }
+
+
+        let rectDots = [];
+        let rectDrawn = false;
+        let viewBoxes = [];
+        let editBoxBool = false;
+        function addBox(){
+            console.log(camera)
+            if (boxes.get('new_box')){
+                alert('Перед добавлением нового бокса, пожалуйста, сохраните предыдущий');
+            }
+            else {
+                if (camera.length !== 0){
+                    $('.boxesColumn').append(`<div class="boxRow" id='boxRow_new_box'>
+                        <input id="boxName_new_box" type="text" class="boxName w-50" onchange="">
+                        <div class="buttonsSector">
+                            <button id="edit_new_box" class="editBox btn btn-primary" onclick="editBox('new_box')">edit</button>
+                            <button id="del_new_box" class="delBox btn btn-danger" onclick="delBox('new_box')">del</button>
+                            <button id="confirm_new_box" class="confirmBox btn btn-success" disabled onclick="saveBox('new_box')">ok</button>
+                        </div>
+                    </div>`)
+                    boxes.set('new_box', []);
+                }
+                else {
+                    alert('Камера не сохранена')
+                }
+            }
+        }
+        function editBox(key){
+            if (!editBoxBool){
+                $('#clear_rect').css('display', 'inline-block');
+                // $('.confirmBox').attr('disabled','disabled');
+                $('.editBox').attr('disabled','disabled');
+                $('.delBox').attr('disabled','disabled');
+                $(`#confirm_${key}`).removeAttr('disabled');
+                $(`#boxName_${key}`).removeAttr('disabled');
+                $(`#edit_${key}`).removeAttr('disabled');
+                $(`#del_${key}`).removeAttr('disabled');
+
+                // if (rectDots.length > 0) highlightRect(ctx, defaultColor);
+                defaultValues();
+                editBoxBool = true;
+                val = boxes.get(key)
+
+                if (val.length > 0){
+                    console.log(val);
+
+                    // не допустить удаления остальных боксов в случае пересечения с выбранным
+                    redrawCanvas(key);
+                    let coords = percentToCoords(val);
+                    rectDots.push([coords[0], coords[1]]);
+                    rectDots.push([coords[2], coords[3]]);
+                    drawRect(ctxDraw);
+                    highlightRect(ctxDraw);
+                }   
+            }
+        }
+        function saveBox(key){
+            let box = boxes.get(key);
+            let box_name = $(`#boxName_${key}`)[0].value;
+            if (box_name === ''){ alert('Укажите название бокса'); return;}
+            if (rectDots.length === 0){ alert('Обозначьте координаты бокса на камере'); return;}
+            let val = coordsToPercent();
+            val.push(box_name);
+            console.log(val);
+            boxes.set(key, val);
+            console.log(boxes);
+            highlightRect(ctxDraw, defaultColor);
+            saveCanvas();
+            defaultValues();
+            editBoxBool = false;
+            $('#clear_rect').css('display', 'none');
+            $('.editBox').removeAttr('disabled');
+            $('.delBox').removeAttr('disabled');
+            $(`#confirm_${key}`).attr('disabled','disabled');
+            $(`#boxName_${key}`).attr('disabled','disabled');
+            console.log('box saved');
+        }
+        function delBox(key){
+            if (confirm('Подтвердить удаление бокса?')){
+                if (boxes.get(key).length > 0){
+                    setRectDots(boxes.get(key));
+                    removeBox(editBoxBool ? ctxDraw : ctx);
+                }
+                defaultValues();
+                boxes.delete(key);
+                $(`#boxRow_${key}`).remove();
+                redrawCanvas(key);
+                editBoxBool = false;
+            }
+        }
         function displayBoxList(boxList){
             $('.boxesColumn').empty()
             boxList.forEach(function(val, key, map){
-                $('.boxesColumn').append(`<div class="boxRow">
-                    <input type="text" class="boxName w-50" onchange="" value="${val[4]}">
+                defaultValues()
+                viewBoxes.push(key)
+                $('.boxesColumn').append(`<div class="boxRow" id='boxRow_${key}'>
+                    <input id="boxName_${key}" type="text" class="boxName w-50" onchange="" value="${val[4]}" disabled>
                     <div class="buttonsSector">
-                        <button class="editBox btn btn-primary" onclick="editBox(${key})">edit</button>
-                        <button class="deleteBox btn btn-danger" onclick="delBox(${key})">del</button>
-                        <button class="conflimBox btn btn-success" disabled onclick="saveBox(${key})">ok</button>
+                        <button id="edit_${key}" class="editBox btn btn-primary" onclick="editBox(${key})">edit</button>
+                        <button id="del_${key}" class="delBox btn btn-danger" onclick="delBox(${key})">del</button>
+                        <button id="confirm_${key}" class="confirmBox btn btn-success" disabled onclick="saveBox(${key})">ok</button>
                     </div>
                   </div>`)
+                setRectDots(val);
+                drawRect(ctx);
+                defaultValues();
             })
         }
+        function redrawCanvas(key){
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            boxes.forEach(function(val, key_redraw, map){
+                if (key !== key_redraw){
+                    setRectDots(val);
+                    drawRect(ctx);
+                    defaultValues();
+                };
+            })
+        }
+        function setRectDots(val){
+            let coords = percentToCoords(val);
+            rectDots.push([coords[0], coords[1]]);
+            rectDots.push([coords[2], coords[3]]);
+        }
+
+        function percentToCoords(val){
+            let x1 = val[0]/100 * canvas.width;
+            let y1 = val[1]/100 * canvas.height;
+            let x2 = val[2]/100 * canvas.width;
+            let y2 = val[3]/100 * canvas.height;
+            console.log(val[0], val[1], x1, y1);
+            return [x1, y1, x2, y2];
+
+        }
+        function coordsToPercent(){
+            let x1 = rectDots[0][0]*100 / canvas.width;
+            let y1 = rectDots[0][1]*100 / canvas.height;
+            let x2 = rectDots[1][0]*100 / canvas.width;
+            let y2 = rectDots[1][1]*100 / canvas.height;
+            console.log(x1, y1, x2, y2);
+            return [x1, y1, x2, y2];
+        }
+        function drawCircle(currentCtx, x, y, color=defaultColor) {
+            currentCtx.save();  // Сохранение текущего состояния
+            currentCtx.setTransform(1, 0, 0, 1, 0, 0);  // Сброс трансформаций
+            currentCtx.beginPath();
+            currentCtx.arc(x, y, 1, 0, Math.PI * 2);
+            currentCtx.strokeStyle = color;
+            currentCtx.stroke();
+            currentCtx.restore();  // Восстановление состояния после рисования
+        }
+        function drawRect(currentCtx, color=defaultColor){
+            currentCtx.save();
+            currentCtx.beginPath();
+            drawCircle(currentCtx, rectDots[0][0], rectDots[0][1], color);
+            drawCircle(currentCtx, rectDots[1][0], rectDots[1][1], color);
+            currentCtx.rect(rectDots[0][0], rectDots[0][1], rectDots[1][0]-rectDots[0][0], rectDots[1][1] - rectDots[0][1]);
+            currentCtx.strokeStyle = color;
+            currentCtx.stroke();
+            currentCtx.restore();
+            rectDrawn = true;
+        }
+        function clearCanvas(currentCtx=ctxDraw){
+            if (confirm('Удалятся все координаты боксов, продолжить?')){
+                currentCtx.clearRect(0, 0, canvas.width, canvas.height);
+                defaultValues();
+            }
+        }
+        function defaultValues(){
+            rectDots = [];
+            rectDrawn = false;
+        }
+        function removeBox(currentCtx=ctxDraw){
+            if (rectDots.length > 0){
+                x = Math.min(rectDots[0][0], rectDots[1][0]);
+                y = Math.min(rectDots[0][1], rectDots[1][1]);
+                currentCtx.clearRect(x-2, y-2, Math.abs(rectDots[1][0]-rectDots[0][0])+4, Math.abs(rectDots[1][1] - rectDots[0][1])+4);
+            }
+        }
+        function highlightRect(currentCtx, color = highlightColor){
+            console.log(rectDots);
+            removeBox(currentCtx);
+            drawCircle(currentCtx, rectDots[0][0], rectDots[0][1], color);
+            drawCircle(currentCtx, rectDots[1][0], rectDots[1][1], color);
+            drawRect(currentCtx, color)
+        }
+        function drawUp(){
+            console.log('drawUp')
+            let rect = canvasDraw.getBoundingClientRect();  // Получаем размеры канваса относительно окна
+            let scaleX = canvasDraw.width / rect.width;     // Коэффициент масштабирования по X
+            let scaleY = canvasDraw.height / rect.height;   // Коэффициент масштабирования по Y
+            console.log('drawUp')
+            $('#canvas_draw').click(function(e){
+                console.log('clickDraw')
+                if (rectDots.length < 2){
+                // if (rectDots.length < 2 && editBoxBool){
+                    let x = (e.clientX - rect.left) * scaleX;
+                    let y = (e.clientY - rect.top) * scaleY;
+                    console.log("x: " + x + " y: " + y);
+                    rectDots.push([x,y]);
+                    ctxDraw.moveTo(x, y);
+                    drawCircle(ctxDraw, x, y, highlightColor);
+                }
+                if (rectDots.length == 2 & !rectDrawn){
+                    drawRect(ctxDraw, highlightColor);
+                }
+            }
+        )
+        }
+        function saveCanvas(){
+            ctx.drawImage(canvasDraw, 0, 0);
+            ctxDraw.clearRect(0, 0, canvasDraw.width, canvasDraw.height);
+        }
+
         {% if cam is defined and cam %}
             
             {% if cam.getCamera() %}
@@ -79,6 +299,7 @@
             boxes.set({{box.id}}, [{{box.x1}}, {{box.y1}}, {{box.x2}}, {{box.y2}}, '{{box.name}}'] );
             {% endfor %}
             displayBoxList(boxes)
+            drawUp()
         {% endif %}
 
         
