@@ -22,9 +22,9 @@ def getCameraPicture():
     camera = Camera.getByID(camId)
     if camera:
         MAX_CONNECTIONS_RETRYS = 10
-        res = -1
+        res = 2 # start await value
         break_counter = 0
-        while res <= 2 and break_counter < MAX_CONNECTIONS_RETRYS:
+        while res == 2 and break_counter < MAX_CONNECTIONS_RETRYS:
             res, pic, info = CameraPictureGetter.getPicture(camera)
             sleep(1)
             break_counter += 1

@@ -1368,3 +1368,58 @@ WARNING:werkzeug: * Debugger is active!
 INFO:werkzeug: * Debugger PIN: 712-744-872
 INFO:werkzeug: * Detected change in 'c:\\Users\\Марков Владимир\\Documents\\GitHub\\CamKateApp\\web_contollers\\pages\\__init__.py', reloading
 INFO:werkzeug: * Restarting with stat
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:4997
+ * Running on http://192.168.148.32:4997
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 712-744-872
+INFO:werkzeug:127.0.0.1 - - [26/Sep/2024 17:20:46] "GET /main HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Sep/2024 17:20:47] "GET /css/bootstrap.min.css HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Sep/2024 17:20:47] "GET /css/base_styles.css HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Sep/2024 17:20:47] "GET /css/main_page_styles.css HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Sep/2024 17:20:47] "GET /js/jquery-3.7.1.min.js HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Sep/2024 17:20:47] "GET /img/logo.png HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Sep/2024 17:20:47] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [26/Sep/2024 17:21:44] "GET /camList HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Sep/2024 17:21:44] "[36mGET /css/bootstrap.min.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [26/Sep/2024 17:21:44] "[36mGET /css/base_styles.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [26/Sep/2024 17:21:44] "[36mGET /js/jquery-3.7.1.min.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [26/Sep/2024 17:21:44] "[36mGET /img/logo.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [26/Sep/2024 17:21:46] "GET /editCamera?new=true HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Sep/2024 17:21:47] "[36mGET /css/bootstrap.min.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [26/Sep/2024 17:21:47] "[36mGET /css/base_styles.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [26/Sep/2024 17:21:47] "[36mGET /js/jquery-3.7.1.min.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [26/Sep/2024 17:21:47] "GET /css/camera_edit_page_styles.css HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Sep/2024 17:21:47] "GET /img/basic_img.jpg HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Sep/2024 17:21:47] "[36mGET /img/logo.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [26/Sep/2024 17:21:53] "[33mGET /getCameraPicture?cam_id=1 HTTP/1.1[0m" 404 -
+INFO:werkzeug: * Detected change in 'c:\\Users\\Марков Владимир\\Documents\\GitHub\\CamKateApp\\web_contollers\\api\\__init__.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 712-744-872
+INFO:werkzeug:127.0.0.1 - - [26/Sep/2024 17:22:54] "[33mGET /getCameraPicture?cam_id=1 HTTP/1.1[0m" 404 -
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:4997
+ * Running on http://192.168.148.32:4997
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 712-744-872
+INFO:werkzeug:127.0.0.1 - - [26/Sep/2024 17:23:02] "[33mGET /getCameraPicture?cam_id=1 HTTP/1.1[0m" 404 -
+INFO:werkzeug: * Detected change in 'c:\\Users\\Марков Владимир\\Documents\\GitHub\\CamKateApp\\web_contollers\\api\\__init__.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 712-744-872
+INFO:werkzeug:127.0.0.1 - - [26/Sep/2024 17:23:58] "POST /getCameraPicture HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in 'c:\\Users\\Марков Владимир\\Documents\\GitHub\\CamKateApp\\web_contollers\\api\\main_rest_controller.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 712-744-872
+INFO:werkzeug: * Detected change in 'c:\\Users\\Марков Владимир\\Documents\\GitHub\\CamKateApp\\web_contollers\\api\\main_rest_controller.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 712-744-872
