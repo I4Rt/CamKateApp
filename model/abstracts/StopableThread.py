@@ -22,8 +22,8 @@ class StopableThread(Thread):
         else:
             self._target(self._args, **self._kwargs)
     
-    def __del__(self):
-        print("deleted StopableThread object", currentThread().ident)
+    # def __del__(self):
+    #     print("deleted StopableThread object", currentThread().ident)
     
     
 

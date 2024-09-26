@@ -2,7 +2,7 @@ from config import *
 from model.data.BaseData import *
 from model.abstracts.CameraApi import *
 
-class Camera(BaseData, CameraApi):
+class Camera(BaseData): #, CameraApi):
     __tablename__ = 'camera'
     
     route = Column(String, nullable=False, unique=True)
@@ -17,7 +17,8 @@ class Camera(BaseData, CameraApi):
 
     def __init__(self, route, name, camera_matrix, coefs, id=None):
         BaseData.__init__(self, id)
-        CameraApi.__init__(self, route)
+        # CameraApi.__init__(self, route)
+        self.route = route
         self.name = name
         self.camera_matrix = camera_matrix
         self.coefs = coefs
@@ -34,9 +35,6 @@ class Camera(BaseData, CameraApi):
         coefs = self.coefs.strip('{}')
         cm = [list(map(float, group.split(','))) for group in cm.split('},{')]
         coefs = [float(i) for i in coefs.split(',')]
-<<<<<<< Updated upstream
-        return cm, coefs
-=======
         return cm, coefs
     
     def getInfo(self):
@@ -46,4 +44,4 @@ class Camera(BaseData, CameraApi):
         if type(other) == Camera:
             return self.id == other.id 
         return False
->>>>>>> Stashed changes
+

@@ -1,8 +1,13 @@
 from model.abstracts.CameraApi import *
 from model.abstracts.TestsDB import *
 from model.abstracts.CameraHolder import *
+from model.abstracts.updated_camera_tools.CameraPictureGetter import *
+from model.abstracts.updated_camera_tools.PictureCapture import *
+from model.abstracts.updated_camera_tools.VideoCaptureHolder import *
 from tools.testing import *
 import numpy as np
+
+from matplotlib import pyplot as plt
 
 def testCamApi(route=0):
 
@@ -71,15 +76,30 @@ def camHolderTest():
         i += 1
     
 
+def testCamerasUpdated(route = 0):
+    camera = Camera.getLast()   
+    for i in range(6):
+        res, pic, info = CameraPictureGetter.getPicture(camera)
+        print(res, pic, info )
+        sleep(3)
+    sleep(10)
+    VideoCaptureHolder.getInstance().stopDemon()
+    # plt.imshow(pic)
+    
+
+
 if __name__ == '__main__':
+    MANAGER = Manager()
+    PictureCapture.setManager(MANAGER)
     # print("Тесты подключения к камере")
     # testCamApi(0)
     
     # print('\nТесты запросов к БД')
     # testDBRequests()
     
-    print('\nТесты подключений к камерам')
-    camHolderTest()
+    # print('\nТесты подключений к камерам')
+    # camHolderTest()
+    testCamerasUpdated()
 
     
 

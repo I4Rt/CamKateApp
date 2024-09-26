@@ -17,7 +17,7 @@ app = Flask(__name__, template_folder='resources/templates', static_folder='reso
 Base = declarative_base()
 e = create_engine("postgresql://postgres:qwerty@localhost:5432/cam_kate_app", echo=False)
 
-MANAGER = Manager()
+
 
 logger = logging.getLogger(__name__) 
 logging.basicConfig(filename='cam_sys.log', level=logging.INFO)

@@ -1,7 +1,9 @@
-from config import *
-from multiprocessing import Process, Event
-
+# from config import *
+from multiprocessing import Process, Event, Manager
+import cv2
+from time import sleep
 class PictureCapture:
+    
     '''
         SHIT SHIT SHIT SHIT SHIT SHIT SHIT SHIT SHIT\n
         
@@ -11,12 +13,32 @@ class PictureCapture:
         изображений используя функцию "start" или "stop" 
         соответственно
     '''
-    def __init__(self, camRoute) -> None:
-        self.__bufferDict = MANAGER.dict()
-        self.pictureGetterStream = PictureCapture.__PictureGetterStream(camRoute, self.__bufferDict)
+    __MANAGER = None
+    
+    def __init__(self, camRoute:str) -> None:
+        self.__bufferDict = PictureCapture.__MANAGER.dict()
+        self.stopEvent = Event()
+        
+        self.captureProcess = Process(target = self.task, args=(int(camRoute) if camRoute.isdigit() else camRoute, self.__bufferDict))
+
+    def task(self, cam_route, buferLink):
+        stream = cv2.VideoCapture(cam_route)
+        # buferLink['info'] = stream.isOpened()
+        if stream.isOpened():
+            while not self.stopEvent.is_set():
+                try:
+                    res, buferLink['image'] = stream.read() # BOOLshit
+                    # buferLink['imgGet'] = res
+                except:
+                    break
+                
+    
+    @classmethod
+    def setManager(cls, manager):
+        cls.__MANAGER = manager
         
     def getImage(self):
-        if self.pictureGetterStream.isAlive():
+        if self.isActive():
             try:
                 return True, self.__bufferDict['image'] # BOOLshit
             except: # handle key fucking error
@@ -24,36 +46,21 @@ class PictureCapture:
         return False, None
     
     def stop(self):
-        self.pictureGetterStream.stop()
+        self.stopEvent.set()
         
     def start(self):
-        self.pictureGetterStream.start()
+        self.captureProcess.start()
         
     def isActive(self):
-        return self.pictureGetterStream.isAlive()
-          
-    class __PictureGetterStream:
-        '''
-            HOLE HOLE HOLE HOLE HOLE HOLE HOLE HOLE HOLE\n
-            
-            Инкапсулирует функцию сбора видеоизображения\n
-            Дает возможность прерывать сбор данных с камер
-        '''
-        def __init__(self, cam_route, buferLink):
-            self.stopEvent = Event()
-            self.captureProcess = Process(target = self.task, args=(cam_route, buferLink))
-            
-        def task(self, cam_route, buferLink):
-            stream = cv2.VideoCapture(cam_route)
-            if stream.isOpened():
-                while not self.stopEvent.is_set():
-                    res, buferLink['image'] = stream.read() # BOOLshit
-                    
-        def isAlive(self):
-            return self.captureProcess.is_alive()
-        
-        def start(self):
-            self.captureProcess.start()
-        
-        def stop(self):
-            self.stopEvent.set()
+        return self.captureProcess.is_alive()
+    
+if __name__ == "__main__":
+    MANAGER = Manager()
+    PictureCapture.setManager(MANAGER)
+    ps = PictureCapture("0")
+    ps.start()
+    for i in range(10):
+        sleep(1)
+        print(ps.getImage())
+    ps.stop()
+    sleep(1)
