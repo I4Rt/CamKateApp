@@ -59,6 +59,13 @@ class BaseData(Jsonifyer, Base):
             res = ses.query(cls).delete()
             ses.commit()
             print(f'deleted {res}')
+            
+    @classmethod
+    def deleteByID(cls, targetId):
+        with DBSessionMaker.getSession() as ses:
+            res = ses.query(cls).filter_by(id=targetId).delete()
+            ses.commit()
+            print(f'deleted {res}')
               
     def __repr__(self) -> str:
         return f"<{self.__class__.__name__} {self.getParamsList()}>"

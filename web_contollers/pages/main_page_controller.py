@@ -30,7 +30,9 @@ def editCamera():
         return render_template('camera_edit.html', cam = None)
     requestedCamId = request.args.get('id')
     camSearchResult = CamSector.getByID(requestedCamId)
-    return render_template('camera_edit.html', cam=camSearchResult)
+    if camSearchResult:
+        return render_template('camera_edit.html', cam=camSearchResult)
+    return f'no camera with id {requestedCamId}'
     
     
 

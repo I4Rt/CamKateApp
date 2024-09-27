@@ -29,3 +29,12 @@ class Box(BaseData):
             self.save()
             return True
         return False
+    
+    def setCamSectorById(self, cs_id:"CamSector"):
+        self.cam_sector_id = cs_id
+        self.save()
+        return True
+    
+    def getInfo(self):
+        return [self.name, self.x1, self.y1, self.x2, self.y2, self.id]
+        

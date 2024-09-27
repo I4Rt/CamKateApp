@@ -1423,3 +1423,369 @@ INFO:werkzeug: * Detected change in 'c:\\Users\\Марков Владимир\\Documents\\GitH
 INFO:werkzeug: * Restarting with stat
 WARNING:werkzeug: * Debugger is active!
 INFO:werkzeug: * Debugger PIN: 712-744-872
+INFO:werkzeug:127.0.0.1 - - [26/Sep/2024 17:26:08] "POST /getCameraPicture HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Sep/2024 17:26:18] "POST /getCameraPicture HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Sep/2024 17:26:20] "POST /getCameraPicture HTTP/1.1" 200 -
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:4997
+ * Running on http://192.168.1.84:4997
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 712-744-872
+INFO:werkzeug:127.0.0.1 - - [27/Sep/2024 11:57:38] "GET /main HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [27/Sep/2024 11:57:38] "[36mGET /css/bootstrap.min.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [27/Sep/2024 11:57:38] "[36mGET /css/base_styles.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [27/Sep/2024 11:57:38] "[36mGET /img/logo.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [27/Sep/2024 11:57:38] "[36mGET /css/main_page_styles.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [27/Sep/2024 11:57:38] "[36mGET /js/jquery-3.7.1.min.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [27/Sep/2024 11:57:55] "GET /editCamera?new=true HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [27/Sep/2024 11:57:55] "[36mGET /css/bootstrap.min.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [27/Sep/2024 11:57:55] "[36mGET /css/base_styles.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [27/Sep/2024 11:57:55] "[36mGET /img/basic_img.jpg HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [27/Sep/2024 11:57:55] "[36mGET /js/jquery-3.7.1.min.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [27/Sep/2024 11:57:55] "[36mGET /img/logo.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [27/Sep/2024 11:57:55] "[36mGET /css/camera_edit_page_styles.css HTTP/1.1[0m" 304 -
+INFO:werkzeug: * Detected change in 'c:\\Users\\Марков Владимир\\Documents\\GitHub\\CamKateApp\\web_contollers\\api\\main_rest_controller.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 712-744-872
+INFO:werkzeug: * Detected change in 'c:\\Users\\Марков Владимир\\Documents\\GitHub\\CamKateApp\\model\\data\\CamSector.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 712-744-872
+INFO:werkzeug: * Detected change in 'c:\\Users\\Марков Владимир\\Documents\\GitHub\\CamKateApp\\model\\data\\Box.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 712-744-872
+INFO:werkzeug: * Detected change in 'c:\\Users\\Марков Владимир\\Documents\\GitHub\\CamKateApp\\web_contollers\\api\\main_rest_controller.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 712-744-872
+INFO:werkzeug: * Detected change in 'c:\\Users\\Марков Владимир\\Documents\\GitHub\\CamKateApp\\web_contollers\\api\\main_rest_controller.py', reloading
+INFO:werkzeug: * Restarting with stat
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:4997
+ * Running on http://192.168.1.84:4997
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 712-744-872
+INFO:werkzeug: * Detected change in 'c:\\Users\\Марков Владимир\\Documents\\GitHub\\CamKateApp\\web_contollers\\api\\main_rest_controller.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 712-744-872
+INFO:werkzeug: * Detected change in 'c:\\Users\\Марков Владимир\\Documents\\GitHub\\CamKateApp\\model\\data\\BaseData.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 712-744-872
+INFO:werkzeug: * Detected change in 'c:\\Users\\Марков Владимир\\Documents\\GitHub\\CamKateApp\\web_contollers\\api\\main_rest_controller.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 712-744-872
+INFO:werkzeug: * Detected change in 'c:\\Users\\Марков Владимир\\Documents\\GitHub\\CamKateApp\\web_contollers\\api\\main_rest_controller.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 712-744-872
+INFO:werkzeug: * Detected change in 'c:\\Users\\Марков Владимир\\Documents\\GitHub\\CamKateApp\\model\\data\\BaseData.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 712-744-872
+INFO:werkzeug: * Detected change in 'c:\\Users\\Марков Владимир\\Documents\\GitHub\\CamKateApp\\web_contollers\\api\\main_rest_controller.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 712-744-872
+INFO:werkzeug: * Detected change in 'c:\\Users\\Марков Владимир\\Documents\\GitHub\\CamKateApp\\model\\data\\BaseData.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 712-744-872
+INFO:werkzeug: * Detected change in 'c:\\Users\\Марков Владимир\\Documents\\GitHub\\CamKateApp\\model\\data\\CamSector.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 712-744-872
+INFO:werkzeug: * Detected change in 'c:\\Users\\Марков Владимир\\Documents\\GitHub\\CamKateApp\\model\\data\\CamSector.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 712-744-872
+INFO:werkzeug: * Detected change in 'c:\\Users\\Марков Владимир\\Documents\\GitHub\\CamKateApp\\model\\data\\CamSector.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 712-744-872
+INFO:werkzeug: * Detected change in 'c:\\Users\\Марков Владимир\\Documents\\GitHub\\CamKateApp\\web_contollers\\api\\main_rest_controller.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 712-744-872
+INFO:werkzeug: * Detected change in 'c:\\Users\\Марков Владимир\\Documents\\GitHub\\CamKateApp\\web_contollers\\api\\main_rest_controller.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 712-744-872
+INFO:werkzeug: * Detected change in 'c:\\Users\\Марков Владимир\\Documents\\GitHub\\CamKateApp\\web_contollers\\api\\main_rest_controller.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 712-744-872
+INFO:werkzeug: * Detected change in 'c:\\Users\\Марков Владимир\\Documents\\GitHub\\CamKateApp\\web_contollers\\api\\main_rest_controller.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 712-744-872
+INFO:werkzeug: * Detected change in 'c:\\Users\\Марков Владимир\\Documents\\GitHub\\CamKateApp\\web_contollers\\api\\main_rest_controller.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 712-744-872
+INFO:werkzeug: * Detected change in 'c:\\Users\\Марков Владимир\\Documents\\GitHub\\CamKateApp\\web_contollers\\api\\main_rest_controller.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 712-744-872
+INFO:werkzeug: * Detected change in 'c:\\Users\\Марков Владимир\\Documents\\GitHub\\CamKateApp\\web_contollers\\api\\main_rest_controller.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 712-744-872
+INFO:werkzeug: * Detected change in 'c:\\Users\\Марков Владимир\\Documents\\GitHub\\CamKateApp\\web_contollers\\api\\main_rest_controller.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 712-744-872
+INFO:werkzeug: * Detected change in 'c:\\Users\\Марков Владимир\\Documents\\GitHub\\CamKateApp\\web_contollers\\api\\main_rest_controller.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 712-744-872
+INFO:werkzeug:127.0.0.1 - - [27/Sep/2024 13:19:48] "POST /getCameraPicture HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in 'c:\\Users\\Марков Владимир\\Documents\\GitHub\\CamKateApp\\web_contollers\\api\\main_rest_controller.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 712-744-872
+INFO:werkzeug:127.0.0.1 - - [27/Sep/2024 13:20:49] "POST /getCameraPicture HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [27/Sep/2024 13:20:55] "POST /getCameraPicture HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [27/Sep/2024 13:26:28] "[31m[1mPOST /setCamSector HTTP/1.1[0m" 405 -
+INFO:werkzeug:127.0.0.1 - - [27/Sep/2024 13:26:49] "POST /setCameraSector HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in 'c:\\Users\\Марков Владимир\\Documents\\GitHub\\CamKateApp\\web_contollers\\api\\main_rest_controller.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 712-744-872
+INFO:werkzeug:127.0.0.1 - - [27/Sep/2024 13:28:01] "POST /setCameraSector HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in 'c:\\Users\\Марков Владимир\\Documents\\GitHub\\CamKateApp\\web_contollers\\api\\main_rest_controller.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 712-744-872
+INFO:werkzeug:127.0.0.1 - - [27/Sep/2024 13:28:36] "POST /setCameraSector HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [27/Sep/2024 13:29:10] "POST /setCameraSector HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in 'c:\\Users\\Марков Владимир\\Documents\\GitHub\\CamKateApp\\web_contollers\\api\\main_rest_controller.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 712-744-872
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:4997
+ * Running on http://192.168.176.32:4997
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 712-744-872
+INFO:werkzeug:127.0.0.1 - - [27/Sep/2024 13:30:06] "POST /setCameraSector HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in 'c:\\Users\\Марков Владимир\\Documents\\GitHub\\CamKateApp\\web_contollers\\api_tools\\wraplers.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 712-744-872
+INFO:werkzeug:127.0.0.1 - - [27/Sep/2024 13:31:38] "[35m[1mPOST /setCameraSector HTTP/1.1[0m" 500 -
+INFO:werkzeug: * Detected change in 'c:\\Users\\Марков Владимир\\Documents\\GitHub\\CamKateApp\\model\\data\\CamSector.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 712-744-872
+INFO:werkzeug:127.0.0.1 - - [27/Sep/2024 13:32:44] "POST /setCameraSector HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [27/Sep/2024 13:32:49] "POST /setCameraSector HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in 'c:\\Users\\Марков Владимир\\Documents\\GitHub\\CamKateApp\\model\\data\\CamSector.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 712-744-872
+INFO:werkzeug: * Detected change in 'c:\\Users\\Марков Владимир\\Documents\\GitHub\\CamKateApp\\model\\data\\CamSector.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 712-744-872
+INFO:werkzeug:127.0.0.1 - - [27/Sep/2024 13:34:05] "POST /setCameraSector HTTP/1.1" 200 -
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:4997
+ * Running on http://192.168.176.32:4997
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 712-744-872
+INFO:werkzeug:127.0.0.1 - - [27/Sep/2024 13:36:11] "POST /setCameraSector HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [27/Sep/2024 13:36:22] "POST /setCameraSector HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [27/Sep/2024 13:36:26] "POST /setCameraSector HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [27/Sep/2024 13:36:31] "POST /setCameraSector HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [27/Sep/2024 13:36:36] "POST /setCameraSector HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [27/Sep/2024 13:37:14] "POST /setCameraSector HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [27/Sep/2024 13:37:20] "POST /setCameraSector HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [27/Sep/2024 13:37:25] "POST /setCameraSector HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [27/Sep/2024 13:37:30] "POST /setCameraSector HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in 'c:\\Users\\Марков Владимир\\Documents\\GitHub\\CamKateApp\\web_contollers\\api\\main_rest_controller.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 712-744-872
+INFO:werkzeug:127.0.0.1 - - [27/Sep/2024 13:48:14] "POST /setCameraSector HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in 'c:\\Users\\Марков Владимир\\Documents\\GitHub\\CamKateApp\\web_contollers\\api\\main_rest_controller.py', reloading
+INFO:werkzeug: * Restarting with stat
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:4997
+ * Running on http://192.168.176.32:4997
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 712-744-872
+INFO:werkzeug:127.0.0.1 - - [27/Sep/2024 13:48:38] "POST /setCameraSector HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [27/Sep/2024 13:48:51] "POST /setCameraSector HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [27/Sep/2024 13:49:09] "POST /setCameraSector HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in 'c:\\Users\\Марков Владимир\\Documents\\GitHub\\CamKateApp\\model\\data\\CamSector.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 712-744-872
+INFO:werkzeug:127.0.0.1 - - [27/Sep/2024 13:50:33] "POST /setCameraSector HTTP/1.1" 200 -
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:4997
+ * Running on http://192.168.176.32:4997
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 712-744-872
+INFO:werkzeug:127.0.0.1 - - [27/Sep/2024 13:50:58] "POST /setCameraSector HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [27/Sep/2024 13:51:09] "POST /setCameraSector HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [27/Sep/2024 13:51:17] "POST /setCameraSector HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [27/Sep/2024 13:51:21] "POST /setCameraSector HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [27/Sep/2024 13:52:20] "POST /setCameraSector HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [27/Sep/2024 13:52:38] "POST /setCameraSector HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [27/Sep/2024 13:53:27] "POST /setCameraSector HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in 'c:\\Users\\Марков Владимир\\Documents\\GitHub\\CamKateApp\\web_contollers\\api\\main_rest_controller.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 712-744-872
+INFO:werkzeug: * Detected change in 'c:\\Users\\Марков Владимир\\Documents\\GitHub\\CamKateApp\\web_contollers\\api\\main_rest_controller.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 712-744-872
+INFO:werkzeug: * Detected change in 'c:\\Users\\Марков Владимир\\Documents\\GitHub\\CamKateApp\\web_contollers\\api\\main_rest_controller.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 712-744-872
+INFO:werkzeug: * Detected change in 'c:\\Users\\Марков Владимир\\Documents\\GitHub\\CamKateApp\\web_contollers\\api\\main_rest_controller.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 712-744-872
+INFO:werkzeug:127.0.0.1 - - [27/Sep/2024 13:55:55] "POST /setCameraSector HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in 'c:\\Users\\Марков Владимир\\Documents\\GitHub\\CamKateApp\\web_contollers\\api\\main_rest_controller.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 712-744-872
+INFO:werkzeug: * Detected change in 'c:\\Users\\Марков Владимир\\Documents\\GitHub\\CamKateApp\\web_contollers\\api\\main_rest_controller.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 712-744-872
+INFO:werkzeug:127.0.0.1 - - [27/Sep/2024 13:56:35] "[35m[1mPOST /setCameraSector HTTP/1.1[0m" 500 -
+INFO:werkzeug: * Detected change in 'c:\\Users\\Марков Владимир\\Documents\\GitHub\\CamKateApp\\web_contollers\\api\\main_rest_controller.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 712-744-872
+INFO:werkzeug:127.0.0.1 - - [27/Sep/2024 13:57:53] "POST /setCameraSector HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [27/Sep/2024 13:57:59] "POST /setCameraSector HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [27/Sep/2024 13:58:03] "POST /setCameraSector HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in 'c:\\Users\\Марков Владимир\\Documents\\GitHub\\CamKateApp\\web_contollers\\api_tools\\wraplers.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 712-744-872
+INFO:werkzeug: * Detected change in 'c:\\Users\\Марков Владимир\\Documents\\GitHub\\CamKateApp\\model\\data\\CamSector.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 712-744-872
+INFO:werkzeug: * Detected change in 'c:\\Users\\Марков Владимир\\Documents\\GitHub\\CamKateApp\\web_contollers\\api\\main_rest_controller.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 712-744-872
+INFO:werkzeug:127.0.0.1 - - [27/Sep/2024 14:01:50] "POST /setCameraSector HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [27/Sep/2024 14:02:52] "GET /delCameraSector?cam_sector_id=7 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [27/Sep/2024 14:05:11] "POST /setBox HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [27/Sep/2024 14:05:27] "POST /setBox HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in 'c:\\Users\\Марков Владимир\\Documents\\GitHub\\CamKateApp\\web_contollers\\api\\main_rest_controller.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 712-744-872
+INFO:werkzeug:127.0.0.1 - - [27/Sep/2024 14:05:53] "POST /setBox HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [27/Sep/2024 14:06:20] "POST /setBox HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [27/Sep/2024 14:06:23] "POST /setBox HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in 'c:\\Users\\Марков Владимир\\Documents\\GitHub\\CamKateApp\\web_contollers\\api\\main_rest_controller.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 712-744-872
+INFO:werkzeug:127.0.0.1 - - [27/Sep/2024 14:07:16] "POST /setBox HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in 'c:\\Users\\Марков Владимир\\Documents\\GitHub\\CamKateApp\\web_contollers\\api\\main_rest_controller.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 712-744-872
+INFO:werkzeug:127.0.0.1 - - [27/Sep/2024 14:07:25] "POST /setBox HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in 'c:\\Users\\Марков Владимир\\Documents\\GitHub\\CamKateApp\\web_contollers\\api\\main_rest_controller.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 712-744-872
+INFO:werkzeug:127.0.0.1 - - [27/Sep/2024 14:18:21] "POST /setBox HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [27/Sep/2024 14:19:19] "POST /setBox HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [27/Sep/2024 14:19:36] "POST /setBox HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in 'c:\\Users\\Марков Владимир\\Documents\\GitHub\\CamKateApp\\web_contollers\\api\\main_rest_controller.py', reloading
+INFO:werkzeug: * Restarting with stat
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:4997
+ * Running on http://192.168.176.32:4997
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 712-744-872
+INFO:werkzeug:127.0.0.1 - - [27/Sep/2024 14:20:23] "POST /setBox HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [27/Sep/2024 14:20:37] "POST /setBox HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [27/Sep/2024 14:20:53] "POST /setBox HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [27/Sep/2024 14:21:59] "GET /delBox?box_id=7 HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in 'c:\\Users\\Марков Владимир\\Documents\\GitHub\\CamKateApp\\web_contollers\\pages\\main_page_controller.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 712-744-872
+INFO:werkzeug: * Detected change in 'c:\\Users\\Марков Владимир\\Documents\\GitHub\\CamKateApp\\web_contollers\\pages\\main_page_controller.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 712-744-872
+INFO:werkzeug:127.0.0.1 - - [27/Sep/2024 14:29:51] "GET /editCamera?cam_id=123 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [27/Sep/2024 14:30:07] "GET /editCamera?id=123 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [27/Sep/2024 14:31:49] "POST /setCameraSector HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [27/Sep/2024 14:32:06] "POST /setCameraSector HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [27/Sep/2024 14:32:25] "POST /setBox HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [27/Sep/2024 14:32:42] "POST /setBox HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [27/Sep/2024 14:32:53] "POST /setBox HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [27/Sep/2024 14:32:57] "POST /setBox HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in 'c:\\Users\\Марков Владимир\\Documents\\GitHub\\CamKateApp\\web_contollers\\api\\main_rest_controller.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 712-744-872
+INFO:werkzeug:127.0.0.1 - - [27/Sep/2024 14:34:17] "POST /setBox HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in 'c:\\Users\\Марков Владимир\\Documents\\GitHub\\CamKateApp\\web_contollers\\api\\main_rest_controller.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 712-744-872
+INFO:werkzeug:127.0.0.1 - - [27/Sep/2024 14:34:44] "POST /setBox HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [27/Sep/2024 14:35:30] "POST /setBox HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [27/Sep/2024 14:35:45] "GET /delCameraSector?cam_sector_id=7 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [27/Sep/2024 14:35:55] "GET /delBox?box_id=7 HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in 'c:\\Users\\Марков Владимир\\Documents\\GitHub\\CamKateApp\\web_contollers\\api\\main_rest_controller.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 712-744-872
+INFO:werkzeug:127.0.0.1 - - [27/Sep/2024 14:38:06] "POST /setCameraSector HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [27/Sep/2024 14:38:26] "POST /setCameraSector HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [27/Sep/2024 14:39:52] "POST /setBox HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [27/Sep/2024 14:40:01] "POST /setBox HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in 'c:\\Users\\Марков Владимир\\Documents\\GitHub\\CamKateApp\\web_contollers\\api\\main_rest_controller.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 712-744-872
+INFO:werkzeug: * Detected change in 'c:\\Users\\Марков Владимир\\Documents\\GitHub\\CamKateApp\\web_contollers\\api\\main_rest_controller.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 712-744-872

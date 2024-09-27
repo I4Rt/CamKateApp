@@ -3,6 +3,7 @@ from werkzeug.exceptions import *
 from flask import request
 
 def exception_processing(foo):
+    
     def inner(*args, **kwargs):
         try:
             return foo(*args, **kwargs)

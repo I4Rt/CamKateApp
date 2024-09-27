@@ -17,8 +17,15 @@ class CamSector(BaseData):
         with DBSessionMaker.getSession() as ses:
             return ses.query(Box).filter_by(cam_sector_id=self.id).all()
         
-        
-        
     def getCamera(self):
         with DBSessionMaker.getSession() as ses:
             return ses.query(Camera).filter_by(cam_sector_id=self.id).first()
+        
+    def delete(self):
+        with DBSessionMaker.getSession() as ses:
+            ses.query(Camera).filter_by(cam_sector_id=self.id).delete()
+            ses.delete(self)
+            ses.commit()
+            
+    
+            
