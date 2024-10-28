@@ -37,7 +37,7 @@ class Camera(BaseData): #, CameraApi):
         return cm, coefs
     
     def getInfo(self):
-        return [self.route, self.camera_matrix, self.coefs]
+        return [self.route, self.camera_matrix, self.coefs, self.id]
     
     def __eq__(self, other:"Camera"):
         if type(other) == Camera:

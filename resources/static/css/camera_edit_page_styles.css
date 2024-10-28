@@ -27,9 +27,6 @@
     margin-bottom: 8px;
 }
 
-.boxesColumn{
-
-}
 .boxesColumn>div:nth-child(odd){
     background-color: rgb(231, 231, 231);
 }

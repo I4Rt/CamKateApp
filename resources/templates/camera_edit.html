@@ -10,39 +10,39 @@
     <div class="row">
         <div class="col-6">
             <div id="ggg" class="w-100 h-100" style="position: relative; max-height: 350px;" >
-                <img src="../img/basic_img.jpg" alt="" class="camera_image">
+                <img id="camera_img" src="../img/basic_img.jpg" alt="" class="camera_image">
                 <canvas id="canvas" class="markup_area"></canvas>
                 <canvas id="canvas_draw" class="markup_area"></canvas>    
             </div>
-            <button class="btn btn-light" id="update_img_btn">Обновить</button>
+            <button class="btn btn-light" id="update_img_btn" onclick="fetchUpdateImg()">Обновить</button>
             <button class="btn btn-light" id="clear_rect" onclick="removeBox(); defaultValues()" style="display: none;">Очистить</button>
         </div>
         <div class="col-6 action_cols">
             <div class="row">
                 <div class="text w-50">Имя камеры</div>
-                <input class='w-50' type="text" id="cam_name" value="{{cam.name}}">
+                <input class='w-50 camValues' type="text" id="cam_name" value="{{cam.name}}">
             </div>
             <div class="row">
                 <div class="text w-50">Подключение</div>
-                <input class='w-50' type="text" id="cam_route">
+                <input class='w-50 camValues' type="text" id="cam_route">
             </div>
             <div class="row">
                 <div class="text w-50">Матрица коэфициентов</div>
-                <input type="file" id="coefFile" class="w-50 p-1 border" style="background-color: #f8f9fa !important; border-radius: 3px;"> 
+                <input type="file" id="coefFile" class="w-50 p-1 border" onchange="getmatrix(this)" style="background-color: #f8f9fa !important; border-radius: 3px;"> 
             </div>
-            <textarea class='row w-100 m-2' type="text" id="cam_coefs" disabled></textarea>
+            <textarea class='row w-100 m-2 camValues' type="text" id="cam_coefs" disabled></textarea>
             <div class="row text w-50">
                 <div>Контроль ям</div>
                 <button onclick="addBox()">Добавить яму</button>
             </div>
             <div class="row">
                 <div class="col boxesColumn" >
-                    Отсутствуют
+                    <text id="missingText">Отсутствуют</text>
                 </div>
             </div>
             <div class="row flex-row-reverse">
-                <button class="btn btn-danger w-25 m-2">Удалить</button>
-                <button class="btn btn-success w-25 m-2" disabled>Сохранить</button>
+                <button id="del" class="btn btn-danger w-25 m-2" onclick="delCamera()">Удалить</button>
+                <button id="save" class="btn btn-success w-25 m-2" onclick="saveCameraParams()" disabled>Сохранить</button>
             </div>
         </div>
     </div>
@@ -76,38 +76,213 @@
         let rectDrawn = false;
         let viewBoxes = [];
         let editBoxBool = false;
-        function addBox(){
+        let resp = null;
+        let fieldsChanged = false;
+        let camMatrix = []
+
+        async function fetchUpdateImg(){
+            let data = JSON.stringify({'cam_id':camera[1].slice(-1)[0]})
+            await fetch('http://localhost:4997/getCameraPicture', {
+                credentials: "include",
+                method: "POST", 
+                cors: "no-cors",
+                headers: {
+                    'Content-Type': 'application/json;charset=utf-8',
+                },
+                body: data
+            })
+            .then(response => response.json())
+            .then((response) => {
+                resp = response;
+                
+               document.getElementById('camera_img').src = `data:image/png/;base64, ${response.data.b64img}`;
+            })
+        }
+            
+        async function fetchSetCameraSector() {
+            for (val of $('.camValues'))
+            {
+                console.log(val.value)
+                if (val.value === '') {
+                    alert('Введите всю информацию о камере')
+                    return false
+                }
+            }
+
+            console.log('setCameraSector')
+            if (camera[2]){
+                data = {
+                    'name': camera[0],
+                    'route': camera[1][0],
+                    'matrix': camera[1][1],
+                    'coefs': camera[1][2],
+                    'cam_sec_id' : camera[2]
+                }
+            }
+            else {
+                data = {
+                    'name': camera[0],
+                    'route': camera[1][0],
+                    'matrix': camera[1][1],
+                    'coefs': camera[1][2]
+                }
+            }
+            console.log(data)
+
+            data = JSON.stringify(data)
+
+            return await fetch('http://localhost:4997/setCameraSector', {
+                credentials: "include",
+                method: "POST", 
+                cors: "no-cors",
+                headers: {
+                    'Content-Type': 'application/json;charset=utf-8',
+                },
+                body:data
+            })
+            .then((response) => response.json())
+            .then((response) => {
+                if (response['/setCameraSector'] === true){
+                    console.log(response)
+                    camera[2] = response['data']['cam_sec_id']
+                    camera[1][3] = response['data']['camera'][3]
+                    $('#save').attr('disabled', 'disabled')
+                    return true
+                } 
+                else{
+                    console.log(response)
+                    alert(`Камера не сохранена. Ошибка:\n${response['data']['description']}`)
+                    return false
+                } 
+            })
+        }
+        async function saveCameraParams(){
+            camera[0] = $('#cam_name')[0].value
+            camera[1] = [$('#cam_route')[0].value, camMatrix[0], camMatrix[1]]
+
+            let response = await fetchSetCameraSector()
+            console.log(1)
+            return response
+        }
+
+        async function fetchSetBox(key) {
+            box = boxes.get(key)
+            if (key !== 'new_box'){
+                data = {
+                    'x1':box[0],
+                    'y1':box[1],
+                    'x2':box[2],
+                    'y2':box[3],
+                    'box_name': box[4],
+                    'cam_sec_id':camera[2],
+                    'box_id':key
+                }
+            }
+            else {
+                data = {
+                    'x1':box[0],
+                    'y1':box[1],
+                    'x2':box[2],
+                    'y2':box[3],
+                    'box_name': box[4],
+                    'cam_sec_id':camera[2]
+                }
+            }
+            console.log('data', data)
+            data = JSON.stringify(data)
+            let response = await fetch('http://localhost:4997/setBox', {
+                credentials: "include",
+                method: "POST", 
+                cors: "no-cors",
+                headers: {
+                    'Content-Type': 'application/json;charset=utf-8',
+                },
+                body:data
+            })
+            .then((response) => response.json())
+            .then((response) => {
+                if (response['/setBox'] === true){
+                    console.log(response)
+                    let box_id = response['data']['box'].slice(-1)[0]
+
+                    boxes.set(box_id, boxes.get(key))
+                    boxes.delete('new_box')
+                    $('#boxRow_new_box').remove()
+                    highlightRect(ctxDraw, defaultColor)
+                    removeBox()
+                    clearCanvas(ctx, false)
+                    displayBoxList()
+                    return true
+                } 
+                else{
+                    console.log(response)
+                    alert(`Бокс не сохранен. Ошибка:\n${response['data']['description']}`)
+                    return false
+                } 
+            })
+            return response
+        }
+
+        async function addBox(){
+            if (fieldsChanged | camera.length === 0){
+                let response = await saveCameraParams()
+                console.log('resp', response)
+                if (!response) return
+            }
             console.log(camera)
+            fieldsChanged = false
             if (boxes.get('new_box')){
                 alert('Перед добавлением нового бокса, пожалуйста, сохраните предыдущий');
             }
             else {
-                if (camera.length !== 0){
-                    $('.boxesColumn').append(`<div class="boxRow" id='boxRow_new_box'>
-                        <input id="boxName_new_box" type="text" class="boxName w-50" onchange="">
-                        <div class="buttonsSector">
-                            <button id="edit_new_box" class="editBox btn btn-primary" onclick="editBox('new_box')">edit</button>
-                            <button id="del_new_box" class="delBox btn btn-danger" onclick="delBox('new_box')">del</button>
-                            <button id="confirm_new_box" class="confirmBox btn btn-success" disabled onclick="saveBox('new_box')">ok</button>
-                        </div>
-                    </div>`)
-                    boxes.set('new_box', []);
-                }
-                else {
-                    alert('Камера не сохранена')
-                }
+                $('#missingText').remove()
+                $('.boxesColumn').append(`<div class="boxRow" id='boxRow_new_box'>
+                    <input id="boxName_new_box" type="text" class="boxName w-50" onchange="">
+                    <div class="buttonsSector">
+                        <button id="edit_new_box" class="editBox btn btn-primary" onclick="editBox('new_box')">edit</button>
+                        <button id="del_new_box" class="delBox btn btn-danger" onclick="delBox('new_box')">del</button>
+                        <button id="confirm_new_box" class="confirmBox btn btn-success" disabled onclick="saveBox('new_box')">ok</button>
+                    </div>
+                </div>`)
+                boxes.set('new_box', []);
+                editBox('new_box')
             }
         }
+
+        async function fetchDelCamera(){
+            let response = await fetch(`http://localhost:4997/delCameraSector?cam_sector_id=${camera[2]}`, {
+                credentials: "include",
+                method: "GET", 
+                cors: "no-cors",
+                headers: {
+                    'Content-Type': 'application/json;charset=utf-8',
+                }
+            })
+            .then((response) => response.json())
+            .then((response) => {
+                if (response['/delCameraSector'] === true){
+                    console.log(response)
+                    return true
+                } 
+                else{
+                    console.log(response)
+                    alert(`Камера не удалена. Ошибка:\n${response['data']['description']}`)
+                    return false
+                } 
+            })
+            return response
+        }
+
+        function delCamera(){
+            if (confirm('Подтвердить удаление камеры?')){
+                let response = fetchDelCamera()
+                if (response) window.location.replace(`http://127.0.0.1:4997/camList`);
+            }
+        }
+
         function editBox(key){
             if (!editBoxBool){
-                $('#clear_rect').css('display', 'inline-block');
-                // $('.confirmBox').attr('disabled','disabled');
-                $('.editBox').attr('disabled','disabled');
-                $('.delBox').attr('disabled','disabled');
-                $(`#confirm_${key}`).removeAttr('disabled');
-                $(`#boxName_${key}`).removeAttr('disabled');
-                $(`#edit_${key}`).removeAttr('disabled');
-                $(`#del_${key}`).removeAttr('disabled');
+                changeButtonsVisibility(false, key)
 
                 // if (rectDots.length > 0) highlightRect(ctx, defaultColor);
                 defaultValues();
@@ -127,7 +302,7 @@
                 }   
             }
         }
-        function saveBox(key){
+        async function saveBox(key){
             let box = boxes.get(key);
             let box_name = $(`#boxName_${key}`)[0].value;
             if (box_name === ''){ alert('Укажите название бокса'); return;}
@@ -136,34 +311,63 @@
             val.push(box_name);
             console.log(val);
             boxes.set(key, val);
-            console.log(boxes);
-            highlightRect(ctxDraw, defaultColor);
-            saveCanvas();
-            defaultValues();
-            editBoxBool = false;
-            $('#clear_rect').css('display', 'none');
-            $('.editBox').removeAttr('disabled');
-            $('.delBox').removeAttr('disabled');
-            $(`#confirm_${key}`).attr('disabled','disabled');
-            $(`#boxName_${key}`).attr('disabled','disabled');
-            console.log('box saved');
-        }
-        function delBox(key){
-            if (confirm('Подтвердить удаление бокса?')){
-                if (boxes.get(key).length > 0){
-                    setRectDots(boxes.get(key));
-                    removeBox(editBoxBool ? ctxDraw : ctx);
-                }
+            let response = await fetchSetBox(key)
+            if (response){
+                console.log(boxes);
+                // highlightRect(ctxDraw, defaultColor);
+                saveCanvas();
                 defaultValues();
-                boxes.delete(key);
-                $(`#boxRow_${key}`).remove();
-                redrawCanvas(key);
                 editBoxBool = false;
+                changeButtonsVisibility(true, key);
+                console.log('box saved');
             }
         }
-        function displayBoxList(boxList){
+
+        async function fetchDelBox(key) {
+            let response = await fetch(`http://localhost:4997/delBox?box_id=${key}`, {
+                credentials: "include",
+                method: "GET", 
+                cors: "no-cors",
+                headers: {
+                    'Content-Type': 'application/json;charset=utf-8',
+                }
+            })
+            .then((response) => response.json())
+            .then((response) => {
+                if (response['/delBox'] === true){
+                    console.log(response)
+                    return true
+                } 
+                else{
+                    console.log(response)
+                    alert(`Бокс не удален. Ошибка:\n${response['data']['description']}`)
+                    return false
+                } 
+            })
+            return response
+        }
+
+        async function delBox(key){
+            if (confirm('Подтвердить удаление бокса?')){
+                let response = await fetchDelBox(key)
+                if (response) {
+                    if (boxes.get(key).length > 0){
+                        setRectDots(boxes.get(key));
+                        removeBox(editBoxBool ? ctxDraw : ctx);
+                    }
+                    defaultValues();
+                    boxes.delete(key);
+                    $(`#boxRow_${key}`).remove();
+                    redrawCanvas(key);
+                    editBoxBool = false;
+                    changeButtonsVisibility(true, key)
+                    }
+            }
+        }
+
+        function displayBoxList(){
             $('.boxesColumn').empty()
-            boxList.forEach(function(val, key, map){
+            boxes.forEach(function(val, key, map){
                 defaultValues()
                 viewBoxes.push(key)
                 $('.boxesColumn').append(`<div class="boxRow" id='boxRow_${key}'>
@@ -179,6 +383,26 @@
                 defaultValues();
             })
         }
+
+        function getmatrix(input){
+            let file = input.files[0];
+
+            let reader = new FileReader();
+            reader.readAsText(file);
+            reader.onload = function() {
+                response = reader.result.split(';')
+                console.log(response);
+                camMatrix = response
+                $('#cam_coefs').text(`${camMatrix[0]}\n${camMatrix[1]}`)
+            };
+            reader.onerror = function() {
+                console.log(reader.error);
+                alert(reader.error);
+            };
+
+        }
+        
+
         function redrawCanvas(key){
             ctx.clearRect(0, 0, canvas.width, canvas.height);
             boxes.forEach(function(val, key_redraw, map){
@@ -232,15 +456,35 @@
             currentCtx.restore();
             rectDrawn = true;
         }
-        function clearCanvas(currentCtx=ctxDraw){
-            if (confirm('Удалятся все координаты боксов, продолжить?')){
-                currentCtx.clearRect(0, 0, canvas.width, canvas.height);
-                defaultValues();
+        function clearCanvas(currentCtx=ctxDraw, warning){
+            let permision = true
+            if (warning){
+                permision = confirm('Удалятся все координаты боксов, продолжить?')
             }
+            currentCtx.clearRect(0, 0, canvas.width, canvas.height);
+            defaultValues();
         }
         function defaultValues(){
             rectDots = [];
             rectDrawn = false;
+        }
+        function changeButtonsVisibility(visibility, key){
+            if (visibility){
+                $('#clear_rect').css('display', 'none');
+                $('.editBox').removeAttr('disabled');
+                $('.delBox').removeAttr('disabled');
+                $(`#confirm_${key}`).attr('disabled','disabled');
+                $(`#boxName_${key}`).attr('disabled','disabled');
+            }
+            else if (!visibility){
+                $('#clear_rect').css('display', 'inline-block');
+                $('.editBox').attr('disabled','disabled');
+                $('.delBox').attr('disabled','disabled');
+                $(`#confirm_${key}`).removeAttr('disabled');
+                $(`#boxName_${key}`).removeAttr('disabled');
+                // $(`#edit_${key}`).removeAttr('disabled');
+                $(`#del_${key}`).removeAttr('disabled');
+            }
         }
         function removeBox(currentCtx=ctxDraw){
             if (rectDots.length > 0){
@@ -249,7 +493,7 @@
                 currentCtx.clearRect(x-2, y-2, Math.abs(rectDots[1][0]-rectDots[0][0])+4, Math.abs(rectDots[1][1] - rectDots[0][1])+4);
             }
         }
-        function highlightRect(currentCtx, color = highlightColor){
+        function highlightRect(currentCtx=ctxDraw, color = highlightColor){
             console.log(rectDots);
             removeBox(currentCtx);
             drawCircle(currentCtx, rectDots[0][0], rectDots[0][1], color);
@@ -258,13 +502,18 @@
         }
         function drawUp(){
             console.log('drawUp')
-            let rect = canvasDraw.getBoundingClientRect();  // Получаем размеры канваса относительно окна
-            let scaleX = canvasDraw.width / rect.width;     // Коэффициент масштабирования по X
-            let scaleY = canvasDraw.height / rect.height;   // Коэффициент масштабирования по Y
             console.log('drawUp')
             $('#canvas_draw').click(function(e){
+                let rect = canvasDraw.getBoundingClientRect();  // Получаем размеры канваса относительно окна
+                let scaleX = canvasDraw.width / rect.width;     // Коэффициент масштабирования по X
+                let scaleY = canvasDraw.height / rect.height;   // Коэффициент масштабирования по Y
+            
+                if (rectDots.length === 2 & editBoxBool){
+                    removeBox();
+                    defaultValues();
+                }
                 console.log('clickDraw')
-                if (rectDots.length < 2){
+                if (rectDots.length < 2 & editBoxBool){
                 // if (rectDots.length < 2 && editBoxBool){
                     let x = (e.clientX - rect.left) * scaleX;
                     let y = (e.clientY - rect.top) * scaleY;
@@ -276,8 +525,13 @@
                 if (rectDots.length == 2 & !rectDrawn){
                     drawRect(ctxDraw, highlightColor);
                 }
-            }
-        )
+            })
+        }
+        function checkChange(){
+            $('.camValues').on('input', function(){
+                fieldsChanged = true;
+                $('#save').removeAttr('disabled')
+            });
         }
         function saveCanvas(){
             ctx.drawImage(canvasDraw, 0, 0);
@@ -287,7 +541,7 @@
         {% if cam is defined and cam %}
             
             {% if cam.getCamera() %}
-                camera = ['{{cam.name}}', {{cam.getCamera().getInfo() | tojson}}]
+                camera = ['{{cam.name}}', {{cam.getCamera().getInfo() | tojson}}, {{cam.id}}]
                 $('#cam_route').val(camera[1][0])
                 $('#cam_coefs').text(`${camera[1][1]}\n${camera[1][2]}`)
             {% else %}
@@ -298,9 +552,11 @@
             {% for box in cam.getBoxes() %}
             boxes.set({{box.id}}, [{{box.x1}}, {{box.y1}}, {{box.x2}}, {{box.y2}}, '{{box.name}}'] );
             {% endfor %}
-            displayBoxList(boxes)
-            drawUp()
+            displayBoxList()
+            
         {% endif %}
+        checkChange()
+        drawUp()
 
         
     </script>

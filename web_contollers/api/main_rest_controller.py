@@ -7,9 +7,6 @@ from model.data.Box import Box
 from tools.FileUtil import FileUtil
 import json
 
-
-
-
 @cross_origin
 @app.route('/getCameraPicture', methods=['POST']) 
 @exception_processing
@@ -75,15 +72,15 @@ def setCameraSector():
     coefs = request.json['coefs']
     
     # matrix check
-    try:
-        json.loads(matrix)
-    except:
-        return {request.path: False, 'data': {'description': 'Bad matrix format', 'code': 1}}
-    # coefs check
-    try:
-        json.loads(coefs)
-    except:
-        return {request.path: False, 'data': {'description': 'Bad coefs format', 'code': 2}}
+    # try:
+    #     json.loads(matrix)
+    # except:
+    #     return {request.path: False, 'data': {'description': 'Bad matrix format', 'code': 1}}
+    # # coefs check
+    # try:
+    #     json.loads(coefs)
+    # except:
+    #     return {request.path: False, 'data': {'description': 'Bad coefs format', 'code': 2}}
 
     if 'cam_sec_id' in request.json:
         camSec = CamSector.getByID(request.json['cam_sec_id'])

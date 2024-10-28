@@ -14,6 +14,8 @@ import logging
 
 
 app = Flask(__name__, template_folder='resources/templates', static_folder='resources/static', static_url_path = '')
+cors = CORS(app, supports_credentials=True, resources={r"*": {"origins": "*"}})
+app.config['CORS_HEADERS'] = 'Content-Type'
 Base = declarative_base()
 e = create_engine("postgresql://postgres:qwerty@localhost:5432/cam_kate_app", echo=False)
 
