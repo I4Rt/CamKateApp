@@ -81,7 +81,8 @@
         let camMatrix = []
 
         async function fetchUpdateImg(){
-            let data = JSON.stringify({'cam_id':camera[1].slice(-1)[0]})
+            let data = JSON.stringify({'cam_sec_id':camera[1].slice(-1)[0]})
+            console.log(data)
             await fetch('http://localhost:4997/getCameraPicture', {
                 credentials: "include",
                 method: "POST", 
@@ -94,7 +95,7 @@
             .then(response => response.json())
             .then((response) => {
                 resp = response;
-                
+                console.log(response)
                document.getElementById('camera_img').src = `data:image/png/;base64, ${response.data.b64img}`;
             })
         }

@@ -1789,3 +1789,179 @@ INFO:werkzeug: * Detected change in 'c:\\Users\\Марков Владимир\\Documents\\GitH
 INFO:werkzeug: * Restarting with stat
 WARNING:werkzeug: * Debugger is active!
 INFO:werkzeug: * Debugger PIN: 712-744-872
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:4997
+ * Running on http://10.1.227.181:4997
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 116-912-039
+INFO:werkzeug:127.0.0.1 - - [30/Oct/2024 15:37:10] "GET /editCamera?id=1 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [30/Oct/2024 15:37:11] "GET /css/base_styles.css HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [30/Oct/2024 15:37:11] "GET /img/logo.png HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [30/Oct/2024 15:37:11] "GET /img/basic_img.jpg HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [30/Oct/2024 15:37:11] "GET /css/bootstrap.min.css HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [30/Oct/2024 15:37:11] "GET /css/camera_edit_page_styles.css HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [30/Oct/2024 15:37:11] "GET /js/jquery-3.7.1.min.js HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [30/Oct/2024 15:37:11] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [30/Oct/2024 15:37:36] "GET /editCamera?new=true HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [30/Oct/2024 15:37:36] "[36mGET /css/bootstrap.min.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [30/Oct/2024 15:37:36] "[36mGET /css/base_styles.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [30/Oct/2024 15:37:36] "[36mGET /css/camera_edit_page_styles.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [30/Oct/2024 15:37:36] "[36mGET /js/jquery-3.7.1.min.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [30/Oct/2024 15:37:36] "[36mGET /img/basic_img.jpg HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [30/Oct/2024 15:37:36] "[36mGET /img/logo.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [30/Oct/2024 15:38:06] "OPTIONS /delBox?box_id=new_box HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [30/Oct/2024 15:38:07] "GET /delBox?box_id=new_box HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [30/Oct/2024 15:38:10] "GET /editCamera?id=1 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [30/Oct/2024 15:38:10] "[36mGET /css/bootstrap.min.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [30/Oct/2024 15:38:10] "[36mGET /css/base_styles.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [30/Oct/2024 15:38:10] "[36mGET /css/camera_edit_page_styles.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [30/Oct/2024 15:38:10] "[36mGET /img/basic_img.jpg HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [30/Oct/2024 15:38:10] "[36mGET /js/jquery-3.7.1.min.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [30/Oct/2024 15:38:10] "[36mGET /img/logo.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [30/Oct/2024 15:38:19] "OPTIONS /delBox?box_id=new_box HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [30/Oct/2024 15:38:19] "GET /delBox?box_id=new_box HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [30/Oct/2024 15:39:23] "OPTIONS /setBox HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [30/Oct/2024 15:39:24] "POST /setBox HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [30/Oct/2024 15:39:58] "OPTIONS /delBox?box_id=new_box HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [30/Oct/2024 15:39:58] "GET /delBox?box_id=new_box HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [30/Oct/2024 15:40:01] "GET /editCamera?id=1 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [30/Oct/2024 15:40:01] "[36mGET /css/bootstrap.min.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [30/Oct/2024 15:40:01] "[36mGET /css/camera_edit_page_styles.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [30/Oct/2024 15:40:01] "[36mGET /js/jquery-3.7.1.min.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [30/Oct/2024 15:40:01] "[36mGET /img/basic_img.jpg HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [30/Oct/2024 15:40:01] "[36mGET /img/logo.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [30/Oct/2024 15:40:01] "[36mGET /css/base_styles.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [31/Oct/2024 10:44:15] "GET /editCamera?id=1 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [31/Oct/2024 10:44:15] "[36mGET /css/base_styles.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [31/Oct/2024 10:44:15] "[36mGET /img/basic_img.jpg HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [31/Oct/2024 10:44:15] "[36mGET /css/bootstrap.min.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [31/Oct/2024 10:44:15] "[36mGET /img/logo.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [31/Oct/2024 10:44:15] "[36mGET /css/camera_edit_page_styles.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [31/Oct/2024 10:44:15] "[36mGET /js/jquery-3.7.1.min.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [31/Oct/2024 10:44:15] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [31/Oct/2024 10:45:32] "OPTIONS /setBox HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [31/Oct/2024 10:45:32] "POST /setBox HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [31/Oct/2024 10:45:34] "GET /editCamera?id=1 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [31/Oct/2024 10:45:34] "[36mGET /css/bootstrap.min.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [31/Oct/2024 10:45:34] "[36mGET /css/base_styles.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [31/Oct/2024 10:45:34] "[36mGET /css/camera_edit_page_styles.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [31/Oct/2024 10:45:34] "[36mGET /img/basic_img.jpg HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [31/Oct/2024 10:45:34] "[36mGET /js/jquery-3.7.1.min.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [31/Oct/2024 10:45:34] "[36mGET /img/logo.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [31/Oct/2024 10:50:18] "GET /editCamera?id=1 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [31/Oct/2024 10:50:18] "[36mGET /css/bootstrap.min.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [31/Oct/2024 10:50:18] "[36mGET /css/base_styles.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [31/Oct/2024 10:50:18] "[36mGET /css/camera_edit_page_styles.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [31/Oct/2024 10:50:18] "[36mGET /img/basic_img.jpg HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [31/Oct/2024 10:50:18] "[36mGET /js/jquery-3.7.1.min.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [31/Oct/2024 10:50:18] "[36mGET /img/logo.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [31/Oct/2024 11:35:14] "[36mGET /css/base_styles.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [31/Oct/2024 11:35:14] "[36mGET /css/bootstrap.min.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [31/Oct/2024 11:35:14] "[36mGET /css/camera_edit_page_styles.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [31/Oct/2024 11:35:14] "[33mGET /css/bootstrap.min.css.map HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [31/Oct/2024 18:46:22] "GET /editCamera?id=1 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [31/Oct/2024 18:46:22] "[36mGET /css/base_styles.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [31/Oct/2024 18:46:22] "[36mGET /img/logo.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [31/Oct/2024 18:46:22] "[36mGET /img/basic_img.jpg HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [31/Oct/2024 18:46:22] "[36mGET /css/bootstrap.min.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [31/Oct/2024 18:46:22] "[36mGET /css/camera_edit_page_styles.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [31/Oct/2024 18:46:22] "[33mGET /css/bootstrap.min.css.map HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [31/Oct/2024 18:46:22] "[36mGET /js/jquery-3.7.1.min.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [31/Oct/2024 18:46:23] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:4997
+ * Running on http://192.168.1.86:4997
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 116-912-039
+INFO:werkzeug: * Detected change in 'd:\\GitHub\\CamKateApp\\model\\abstracts\\updated_camera_tools\\PictureCapture.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 116-912-039
+INFO:werkzeug:127.0.0.1 - - [09/Nov/2024 17:02:56] "[32mGET / HTTP/1.1[0m" 302 -
+INFO:werkzeug:127.0.0.1 - - [09/Nov/2024 17:02:56] "GET /main HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Nov/2024 17:02:56] "GET /img/logo.png HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Nov/2024 17:02:56] "GET /css/base_styles.css HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Nov/2024 17:02:56] "GET /css/main_page_styles.css HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Nov/2024 17:02:56] "GET /css/bootstrap.min.css HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Nov/2024 17:02:56] "GET /js/jquery-3.7.1.min.js HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Nov/2024 17:02:56] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [09/Nov/2024 17:03:00] "GET /editCamera?new=true HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Nov/2024 17:03:00] "[36mGET /css/bootstrap.min.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [09/Nov/2024 17:03:00] "[36mGET /css/base_styles.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [09/Nov/2024 17:03:00] "[36mGET /js/jquery-3.7.1.min.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [09/Nov/2024 17:03:00] "[36mGET /img/logo.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [09/Nov/2024 17:03:00] "GET /img/basic_img.jpg HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Nov/2024 17:03:00] "GET /css/camera_edit_page_styles.css HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Nov/2024 17:03:00] "GET /camList HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Nov/2024 17:03:00] "[36mGET /css/bootstrap.min.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [09/Nov/2024 17:03:00] "[36mGET /css/base_styles.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [09/Nov/2024 17:03:00] "[36mGET /js/jquery-3.7.1.min.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [09/Nov/2024 17:03:00] "[36mGET /img/logo.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [09/Nov/2024 17:03:01] "GET /editCamera?new=true HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Nov/2024 17:03:01] "[36mGET /css/bootstrap.min.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [09/Nov/2024 17:03:01] "[36mGET /css/base_styles.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [09/Nov/2024 17:03:01] "[36mGET /css/camera_edit_page_styles.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [09/Nov/2024 17:03:01] "[36mGET /js/jquery-3.7.1.min.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [09/Nov/2024 17:03:01] "[36mGET /img/basic_img.jpg HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [09/Nov/2024 17:03:01] "[36mGET /img/logo.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [09/Nov/2024 17:03:15] "GET /editCamera?id=1 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Nov/2024 17:03:15] "[36mGET /css/bootstrap.min.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [09/Nov/2024 17:03:15] "[36mGET /js/jquery-3.7.1.min.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [09/Nov/2024 17:03:15] "[36mGET /css/camera_edit_page_styles.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [09/Nov/2024 17:03:15] "[36mGET /css/base_styles.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [09/Nov/2024 17:03:15] "[36mGET /img/basic_img.jpg HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [09/Nov/2024 17:03:15] "[36mGET /img/logo.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [09/Nov/2024 17:03:23] "OPTIONS /getCameraPicture HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Nov/2024 17:03:23] "POST /getCameraPicture HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Nov/2024 17:03:29] "[36mGET /css/bootstrap.min.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [09/Nov/2024 17:03:29] "[36mGET /css/base_styles.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [09/Nov/2024 17:03:29] "[36mGET /css/camera_edit_page_styles.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [09/Nov/2024 17:03:29] "[33mGET /css/bootstrap.min.css.map HTTP/1.1[0m" 404 -
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:4997
+ * Running on http://192.168.1.86:4997
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 116-912-039
+INFO:werkzeug:127.0.0.1 - - [09/Nov/2024 17:04:10] "GET /editCamera?id=1 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Nov/2024 17:04:10] "[36mGET /css/base_styles.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [09/Nov/2024 17:04:10] "[36mGET /css/bootstrap.min.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [09/Nov/2024 17:04:10] "[36mGET /img/basic_img.jpg HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [09/Nov/2024 17:04:10] "[36mGET /css/camera_edit_page_styles.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [09/Nov/2024 17:04:10] "[36mGET /img/logo.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [09/Nov/2024 17:04:10] "[36mGET /js/jquery-3.7.1.min.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [09/Nov/2024 17:04:10] "[33mGET /css/bootstrap.min.css.map HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [09/Nov/2024 17:04:11] "OPTIONS /getCameraPicture HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Nov/2024 17:04:11] "POST /getCameraPicture HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Nov/2024 17:05:57] "GET /editCamera?id=1 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Nov/2024 17:05:57] "[36mGET /css/bootstrap.min.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [09/Nov/2024 17:05:57] "[36mGET /img/basic_img.jpg HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [09/Nov/2024 17:05:57] "[36mGET /css/camera_edit_page_styles.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [09/Nov/2024 17:05:57] "[36mGET /css/base_styles.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [09/Nov/2024 17:05:57] "[36mGET /js/jquery-3.7.1.min.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [09/Nov/2024 17:05:57] "[36mGET /img/logo.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [09/Nov/2024 17:05:57] "[33mGET /css/bootstrap.min.css.map HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [09/Nov/2024 17:05:59] "OPTIONS /getCameraPicture HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Nov/2024 17:05:59] "POST /getCameraPicture HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Nov/2024 17:07:13] "GET /editCamera?id=1 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Nov/2024 17:07:13] "[36mGET /css/bootstrap.min.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [09/Nov/2024 17:07:13] "[36mGET /css/base_styles.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [09/Nov/2024 17:07:13] "[36mGET /css/camera_edit_page_styles.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [09/Nov/2024 17:07:13] "[36mGET /img/basic_img.jpg HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [09/Nov/2024 17:07:13] "[36mGET /js/jquery-3.7.1.min.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [09/Nov/2024 17:07:13] "[36mGET /img/logo.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [09/Nov/2024 17:07:13] "[33mGET /css/bootstrap.min.css.map HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [09/Nov/2024 17:07:14] "OPTIONS /getCameraPicture HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Nov/2024 17:07:18] "POST /getCameraPicture HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Nov/2024 17:07:23] "OPTIONS /getCameraPicture HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Nov/2024 17:07:24] "POST /getCameraPicture HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Nov/2024 17:07:27] "POST /getCameraPicture HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Nov/2024 17:07:29] "POST /getCameraPicture HTTP/1.1" 200 -
