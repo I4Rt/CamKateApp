@@ -9,16 +9,14 @@ class BasePoint(BaseData):
     __tablename__ = 'base_point'
     
     
-    name = Column(String, nullable=False)
     x1 = Column(Double, nullable=False) # in percents
     y1 = Column(Double, nullable=False) # in percents
     x2 = Column(Double, nullable=False) # in percents
     y2 = Column(Double, nullable=False) # in percents
     
     cam_sector_id = mapped_column(ForeignKey("cam_sector.id"), nullable=False, unique=True)
-    cam_sector = relationship("CamSector", back_populates="camera")
+    cam_sector = relationship("CamSector", back_populates="basePoint")
     
-    __table_args__ = (UniqueConstraint('cam_sector_id', 'name'), )
     
     def __init__(self, cam_sector_id, x1, y1, x2, y2, id=None):
         super().__init__(id)
@@ -36,5 +34,5 @@ class BasePoint(BaseData):
             return value
     
     def getInfo(self):
-        return [self.name, self.x1, self.y1, self.x2, self.y2, self.id]
+        return [self.x1, self.y1, self.x2, self.y2, self.cam_sector_id, self.id]
         
