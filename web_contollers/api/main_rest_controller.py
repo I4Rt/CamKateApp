@@ -4,6 +4,7 @@ from model.abstracts.updated_camera_tools.CameraPictureGetter import *
 from model.data.Camera import Camera
 from model.data.CamSector import CamSector
 from model.data.Box import Box
+from model.data.BasePoint import BasePoint
 from tools.FileUtil import FileUtil
 import json
 
@@ -27,7 +28,8 @@ def getCameraPicture():
                 res, pic, info = CameraPictureGetter.getPicture(cam)
                 sleep(1)
                 break_counter += 1
-            if res == 1:
+                # here can be added check for case res is 1 but img is None
+            if res == 1 and pic:
                 return {request.path: True, 'data': {'b64img': FileUtil.convertImageToBytes(pic), 'code': 0}}
             elif res == 2:
                 return {request.path: False, 'data': {'description': 'Too long await time', 'code': 3}}
@@ -35,6 +37,8 @@ def getCameraPicture():
                 return {request.path: False, 'data': {'description': 'Camera is not avaliable', 'code': 4}}
             elif res == 4:
                 return {request.path: False, 'data': {'description': 'No answer from camera, try later', 'code': 5}}
+            elif res == 1:
+                return {request.path: False, 'data': {'description': 'Image did not apear yet', 'code': 8}} # connection created but image did not apear
             else:
                 return {request.path: False, 'data': {'description': f'Bad camera connection with inside code {res}', 'code': 6}}
             
@@ -91,7 +95,7 @@ def setCameraSector():
             except Exception as e:
                 return {request.path: False, 'data': {'description': 'Name not unique', 'code': 6, 'adder_info': str(e)}}
             camera = camSec.getCamera()
-            print(camera)
+            
             if camera:
                 try:
                     camera.route = route
@@ -110,7 +114,6 @@ def setCameraSector():
             camSec = CamSector(name)
             camSec.save()
         except Exception as e:
-            print(e)
             return {request.path: False, 'data': {'description': 'Name not unique', 'exception': str(e), 'code': 3}}
         
         try:
@@ -161,7 +164,6 @@ def setBox():
             try:
                 box.setCamSectorById(camSec.id)
             except Exception as e:
-                print(e)
                 return {request.path: False, 'data': {'description': 'Name is not unique', 'code': 2}}
             
         else: 
@@ -169,3 +171,31 @@ def setBox():
         
     return {request.path: True, 'data': {'box': box.getInfo(), 'code': 0}}
 
+@cross_origin
+@app.route('/setBasePoint', methods=['POST']) 
+@exception_processing
+def setBasePoint():
+    
+    x1 = request.json['x1']
+    y1 = request.json['y1']
+    x2 = request.json['x2']
+    y2 = request.json['y2']
+    
+    cam_sec_id = request.json['cam_sec_id']
+        
+    basePoint = BasePoint.getByCameraSectorId(cam_sec_id)
+    if basePoint:
+        basePoint.x1 = x1
+        basePoint.x2 = x2
+        basePoint.y1 = y1
+        basePoint.y2 = y2
+    else:
+        camSec = CamSector.getByID(cam_sec_id)
+        if camSec:
+            basePoint = BasePoint(cam_sec_id, x1, y1, x2, y2)
+        else: 
+            return {request.path: False, 'data': {'description': 'No such camera sector id', 'code': 1}}
+        
+    basePoint.save()
+    
+    return {request.path: True, 'data': {'basePoint': basePoint.getInfo(), 'code': 0}}
