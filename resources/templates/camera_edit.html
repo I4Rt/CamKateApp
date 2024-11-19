@@ -15,6 +15,7 @@
                 <canvas id="canvas_draw" class="markup_area"></canvas>    
             </div>
             <button class="btn btn-light" id="update_img_btn" onclick="fetchUpdateImg()">Обновить</button>
+            <button class="btn btn-light" id="download_image" onclick="downloadImage()">Сохранить изображение</button>
             <button class="btn btn-light" id="clear_rect" onclick="removeBox(); defaultValues()" style="display: none;">Очистить</button>
         </div>
         <div class="col-6 action_cols">
@@ -274,6 +275,22 @@
             return response
         }
 
+        function downloadImage(){
+            try{
+                base64Img = $('#camera_img')[0].src
+                const link = document.createElement("a");
+                link.href = base64Img;
+                link.download = "image.png"; // Укажите имя файла
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+
+            } catch(error){
+                console.log('not base64')
+                console.log(error)
+            }
+        }
+
         function delCamera(){
             if (confirm('Подтвердить удаление камеры?')){
                 let response = fetchDelCamera()
@@ -451,7 +468,7 @@
             currentCtx.beginPath();
             drawCircle(currentCtx, rectDots[0][0], rectDots[0][1], color);
             drawCircle(currentCtx, rectDots[1][0], rectDots[1][1], color);
-            currentCtx.rect(rectDots[0][0], rectDots[0][1], rectDots[1][0]-rectDots[0][0], rectDots[1][1] - rectDots[0][1]);
+            currentCtx.rect(rectDots[0][0]+0.5, rectDots[0][1]+0.5, rectDots[1][0]-rectDots[0][0], rectDots[1][1] - rectDots[0][1]);
             currentCtx.strokeStyle = color;
             currentCtx.stroke();
             currentCtx.restore();
