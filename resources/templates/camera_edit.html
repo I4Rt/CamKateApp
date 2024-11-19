@@ -96,7 +96,7 @@
             .then((response) => {
                 resp = response;
                 console.log(response)
-               document.getElementById('camera_img').src = `data:image/png/;base64, ${response.data.b64img}`;
+               document.getElementById('camera_img').src = `data:image/png;base64, ${response.data.b64img}`;
             })
         }
             
@@ -539,6 +539,20 @@
             ctxDraw.clearRect(0, 0, canvasDraw.width, canvasDraw.height);
         }
 
+        async function imgContextMenu(){
+            canvasDraw.addEventListener('contextmenu', (event) => {
+                canvasDraw.style.pointerEvents = 'none';
+                canvas.style.pointerEvents = 'none';
+
+                setTimeout(() => {
+                    canvasDraw.style.pointerEvents = 'auto';
+                    canvas.style.pointerEvents = 'auto';
+                }, 0)
+
+                
+            });
+        }
+
         {% if cam is defined and cam %}
             
             {% if cam.getCamera() %}
@@ -558,6 +572,7 @@
         {% endif %}
         checkChange()
         drawUp()
+        imgContextMenu()
 
         
     </script>

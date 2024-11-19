@@ -1,6 +1,7 @@
 import numpy as np
 import cv2
 import glob
+import ast
 
 
 class CameraSettings():
@@ -54,7 +55,28 @@ class CameraSettings():
         return camera_matrix.tolist(), dist_coefs.tolist()
 
     @classmethod
-    def get_correct_img(cls, imgs_path, save_path, camera, show_img=False):
+    def get_correct_img(cls, img, camera_matrix, dist_coefs):
+        if type(img) == np.ndarray: img = img
+        print('img')
+        img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
+        print('img1')   
+
+        h,  w = img.shape[:2]
+        camera_matrix = np.array(ast.literal_eval(camera_matrix.replace("{", "[").replace("}", "]")))
+        dist_coefs = np.array(ast.literal_eval(dist_coefs.replace("{", "[").replace("}", "]")))
+        newcameramtx, roi = cv2.getOptimalNewCameraMatrix(camera_matrix, dist_coefs, (w, h), 1, (w, h))
+
+        dst = cv2.undistort(img, camera_matrix, dist_coefs, None, newcameramtx)
+
+        dst = cv2.cvtColor(dst, cv2.COLOR_BGR2RGB)
+
+        x, y, w, h = roi
+        dst = dst[y:y+h, x:x+w]
+
+        return dst
+
+    @classmethod
+    def images_from_path(cls, imgs_path, save_path, camera, show_img=False):
         img_names_undistort = [img for img in glob.glob(f"{imgs_path}/*.png")]
         save_path = f'{save_path}/'
 
@@ -68,22 +90,12 @@ class CameraSettings():
 
         while i < len(img_names_undistort):
             img = cv2.imread(img_names_undistort[i])
-            img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
-
-            h,  w = img.shape[:2]
-            newcameramtx, roi = cv2.getOptimalNewCameraMatrix(camera_matrix, dist_coefs, (w, h), 1, (w, h))
-
-            dst = cv2.undistort(img, camera_matrix, dist_coefs, None, newcameramtx)
-
-            dst = cv2.cvtColor(dst, cv2.COLOR_BGR2RGB)
-
-            x, y, w, h = roi
-            dst = dst[y:y+h, x:x+w]
+            dst = cls.get_correct_img(img, camera_matrix, dist_coefs)
 
             name = img_names_undistort[i].split("\\")
             name = name[-1].split(".")
             name = name[0]
-            full_name = save_path + name + '.jpg'
+            full_name = save_path + name + '.png'
 
             if show_img:
                 imS = cv2.resize(dst, (960, 540)) 
