@@ -63,7 +63,7 @@ def delCamera():
 @app.route('/delBox', methods=['GET']) 
 @exception_processing
 def delBox():
-    boxId = request.args['box_id']
+    boxId = request.args['id']
     Box.deleteByID(boxId)
     return {request.path: True}
     
@@ -187,6 +187,7 @@ def setBasePoint():
     cam_sec_id = request.json['cam_sec_id']
         
     basePoint = BasePoint.getByCameraSectorId(cam_sec_id)
+    print(basePoint)
     if basePoint:
         basePoint.x1 = x1
         basePoint.x2 = x2
@@ -202,3 +203,12 @@ def setBasePoint():
     basePoint.save()
     
     return {request.path: True, 'data': {'basePoint': basePoint.getInfo(), 'code': 0}}
+
+@cross_origin
+@app.route('/delBasePoint', methods=['GET']) 
+@exception_processing
+def delBasePoint():
+    basePointId = request.args['id']
+    BasePoint.deleteByID(basePointId)
+    return {request.path: True}
+    

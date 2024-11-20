@@ -30,7 +30,7 @@ class BasePoint(BaseData):
     @classmethod 
     def getByCameraSectorId(cls, searchId:int) -> "BasePoint":
         with DBSessionMaker.getSession() as ses:
-            value = ses.query(cls).filter_by(id=searchId).first()
+            value = ses.query(cls).filter_by(cam_sector_id=searchId).first()
             return value
     
     def getInfo(self):
