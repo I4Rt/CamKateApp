@@ -6,6 +6,7 @@ from model.data.CamSector import CamSector
 from model.data.Box import Box
 from model.data.BasePoint import BasePoint
 from tools.FileUtil import FileUtil
+from tools.CameraSettings import CameraSettings
 import json
 
 @cross_origin
@@ -29,8 +30,10 @@ def getCameraPicture():
                 sleep(1)
                 break_counter += 1
                 # here can be added check for case res is 1 but img is None
-            if res == 1 and pic:
-                return {request.path: True, 'data': {'b64img': FileUtil.convertImageToBytes(pic), 'code': 0}}
+            print(3, res, type(pic))
+            correct_pic = CameraSettings.get_correct_img(pic, cam.camera_matrix, cam.coefs)
+            if res == 1 and pic is not None:
+                return {request.path: True, 'data': {'b64img': FileUtil.convertImageToBytes(correct_pic), 'code': 0}}
             elif res == 2:
                 return {request.path: False, 'data': {'description': 'Too long await time', 'code': 3}}
             elif res == 3:
@@ -60,7 +63,7 @@ def delCamera():
 @app.route('/delBox', methods=['GET']) 
 @exception_processing
 def delBox():
-    boxId = request.args['box_id']
+    boxId = request.args['id']
     Box.deleteByID(boxId)
     return {request.path: True}
     
@@ -184,6 +187,7 @@ def setBasePoint():
     cam_sec_id = request.json['cam_sec_id']
         
     basePoint = BasePoint.getByCameraSectorId(cam_sec_id)
+    print(basePoint)
     if basePoint:
         basePoint.x1 = x1
         basePoint.x2 = x2
@@ -199,3 +203,12 @@ def setBasePoint():
     basePoint.save()
     
     return {request.path: True, 'data': {'basePoint': basePoint.getInfo(), 'code': 0}}
+
+@cross_origin
+@app.route('/delBasePoint', methods=['GET']) 
+@exception_processing
+def delBasePoint():
+    basePointId = request.args['id']
+    BasePoint.deleteByID(basePointId)
+    return {request.path: True}
+    

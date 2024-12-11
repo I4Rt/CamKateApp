@@ -10,11 +10,12 @@
     <div class="row">
         <div class="col-6">
             <div id="ggg" class="w-100 h-100" style="position: relative; max-height: 350px;" >
-                <img id="camera_img" src="../img/basic_img.jpg" alt="" class="camera_image">
+                <img id="camera_img" src="../img/image2.png" alt="" class="camera_image">
                 <canvas id="canvas" class="markup_area"></canvas>
                 <canvas id="canvas_draw" class="markup_area"></canvas>    
             </div>
             <button class="btn btn-light" id="update_img_btn" onclick="fetchUpdateImg()">Обновить</button>
+            <button class="btn btn-light" id="download_image" onclick="downloadImage()">Сохранить изображение</button>
             <button class="btn btn-light" id="clear_rect" onclick="removeBox(); defaultValues()" style="display: none;">Очистить</button>
         </div>
         <div class="col-6 action_cols">
@@ -31,13 +32,22 @@
                 <input type="file" id="coefFile" class="w-50 p-1 border" onchange="getmatrix(this)" style="background-color: #f8f9fa !important; border-radius: 3px;"> 
             </div>
             <textarea class='row w-100 m-2 camValues' type="text" id="cam_coefs" disabled></textarea>
-            <div class="row text w-50">
-                <div>Контроль ям</div>
-                <button onclick="addBox()">Добавить яму</button>
+            <div class="row text">
+                <div class="col-6 row">
+                    <div>Контроль ям</div>
+                    <button onclick="addBox()">Добавить яму</button>
+                </div>
+                <div class="col-6 row">
+                    <div>Реперная точка</div>
+                    <button onclick="addBasePoints()">Добавить точку</button>
+                </div>
             </div>
             <div class="row">
-                <div class="col boxesColumn" >
+                <div id="boxes" class="col-6 boxesColumn" >
                     <text id="missingText">Отсутствуют</text>
+                </div>
+                <div id="basePoint" class="col-6 boxesColumn">
+
                 </div>
             </div>
             <div class="row flex-row-reverse">
@@ -54,6 +64,7 @@
     <script>
         camera= [];
         let boxes = new Map();
+        let basePoints = new Map();
 
         let canvas = document.getElementById('canvas');
         let canvasDraw = document.getElementById('canvas_draw');
@@ -74,8 +85,8 @@
 
         let rectDots = [];
         let rectDrawn = false;
-        let viewBoxes = [];
-        let editBoxBool = false;
+        // let viewBoxes = [];
+        let editBool = false;
         let resp = null;
         let fieldsChanged = false;
         let camMatrix = []
@@ -96,7 +107,7 @@
             .then((response) => {
                 resp = response;
                 console.log(response)
-               document.getElementById('camera_img').src = `data:image/png/;base64, ${response.data.b64img}`;
+               document.getElementById('camera_img').src = `data:image/png;base64, ${response.data.b64img}`;
             })
         }
             
@@ -205,14 +216,16 @@
                 if (response['/setBox'] === true){
                     console.log(response)
                     let box_id = response['data']['box'].slice(-1)[0]
-
-                    boxes.set(box_id, boxes.get(key))
+                    let box_val = boxes.get(key)
+                    box_val.push(box_id)
+                    boxes.set(box_id, box_val)
                     boxes.delete('new_box')
                     $('#boxRow_new_box').remove()
                     highlightRect(ctxDraw, defaultColor)
                     removeBox()
                     clearCanvas(ctx, false)
-                    displayBoxList()
+                    displayBoxList(boxes, 'boxes')
+                    displayBoxList(basePoints, 'basePoint')
                     return true
                 } 
                 else{
@@ -222,6 +235,80 @@
                 } 
             })
             return response
+        }
+
+        async function fetchSetBasePoint(){
+            let saveBasePoint = basePoints.get('basePoint')
+
+            data = {
+                'x1':saveBasePoint[0],
+                'y1':saveBasePoint[1],
+                'x2':saveBasePoint[2],
+                'y2':saveBasePoint[3],
+                'cam_sec_id':camera[2],
+
+            }
+
+            console.log('setBasePoint', data, saveBasePoint)
+
+            data = JSON.stringify(data)
+            let response = await fetch('http://localhost:4997/setBasePoint', {
+                credentials: "include",
+                method: "POST", 
+                cors: "no-cors",
+                headers: {
+                    'Content-Type': 'application/json;charset=utf-8',
+                },
+                body:data
+            })
+            .then((response) => response.json())
+            .then((response) => {
+                if (response['/setBasePoint'] === true){
+                    console.log(response)
+                    let basePoint_id = response['data']['basePoint'].slice(-1)[0]
+                    let basePoint_val = basePoints.get('basePoint')
+                    basePoint_val.push(basePoint_id)
+                    basePoints.set('basePoint', basePoint_val)
+
+                    highlightRect(ctxDraw, defaultColor)
+                    removeBox()
+                    clearCanvas(ctx, false)
+                    displayBoxList(boxes, 'boxes')
+                    displayBoxList(basePoints, 'basePoint')
+                    return true
+                } 
+                else{
+                    console.log(response)
+                    alert(`Точка не сохранена. Ошибка:\n${response['data']['description']}`)
+                    return false
+                } 
+            })
+            return response
+        }
+
+        async function addBasePoints() {
+            if (basePoints.size > 0) {
+                alert('Реперная точка уже создана')
+                return
+            }
+            if (fieldsChanged | camera.length === 0){
+                let response = await saveCameraParams()
+                console.log('resp', response)
+                if (!response) return
+            }
+            console.log(camera)
+            fieldsChanged = false
+            $('#basePoint').append(`<div class="boxRow" id='boxRow_basePoint'>
+                <input id="boxName_basePoint" type="text" class="boxName w-50" onchange="" disabled>
+                <div class="buttonsSector">
+                    <button id="edit_basePoint" class="edit btn btn-primary" onclick="edit('basePoint', 'basePoints')">edit</button>
+                    <button id="del_basePoint" class="del btn btn-danger" onclick="del('basePoint', 'basePoints')">del</button>
+                    <button id="confirm_basePoint" class="confirmBox btn btn-success" disabled onclick="saveBasePoint()">ok</button>
+                </div>
+            </div>`)
+            basePoints.set('basePoint', []);
+            edit('basePoint', basePoints)
+
         }
 
         async function addBox(){
@@ -237,16 +324,16 @@
             }
             else {
                 $('#missingText').remove()
-                $('.boxesColumn').append(`<div class="boxRow" id='boxRow_new_box'>
+                $('#boxes').append(`<div class="boxRow" id='boxRow_new_box'>
                     <input id="boxName_new_box" type="text" class="boxName w-50" onchange="">
                     <div class="buttonsSector">
-                        <button id="edit_new_box" class="editBox btn btn-primary" onclick="editBox('new_box')">edit</button>
-                        <button id="del_new_box" class="delBox btn btn-danger" onclick="delBox('new_box')">del</button>
+                        <button id="edit_new_box" class="edit btn btn-primary" onclick="edit('new_box', 'boxes')">edit</button>
+                        <button id="del_new_box" class="del btn btn-danger" onclick="del('new_box', 'boxes')">del</button>
                         <button id="confirm_new_box" class="confirmBox btn btn-success" disabled onclick="saveBox('new_box')">ok</button>
                     </div>
                 </div>`)
                 boxes.set('new_box', []);
-                editBox('new_box')
+                edit('new_box', boxes)
             }
         }
 
@@ -274,6 +361,22 @@
             return response
         }
 
+        function downloadImage(){
+            try{
+                base64Img = $('#camera_img')[0].src
+                const link = document.createElement("a");
+                link.href = base64Img;
+                link.download = "image.png"; // Укажите имя файла
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+
+            } catch(error){
+                console.log('not base64')
+                console.log(error)
+            }
+        }
+
         function delCamera(){
             if (confirm('Подтвердить удаление камеры?')){
                 let response = fetchDelCamera()
@@ -281,26 +384,31 @@
             }
         }
 
-        function editBox(key){
-            if (!editBoxBool){
+        function edit(key, type){
+            let target = type === 'boxes' ? boxes : basePoints
+            console.log('target', target, key, target.get(key))
+            if (!editBool){
                 changeButtonsVisibility(false, key)
 
                 // if (rectDots.length > 0) highlightRect(ctx, defaultColor);
                 defaultValues();
-                editBoxBool = true;
-                val = boxes.get(key)
+                editBool = true;
+                val = target.get(key)
+                console.log('check', key, target, val)
+                try{
+                    if (val.length > 0){
+                        console.log(val);
 
-                if (val.length > 0){
-                    console.log(val);
-
-                    // не допустить удаления остальных боксов в случае пересечения с выбранным
-                    redrawCanvas(key);
-                    let coords = percentToCoords(val);
-                    rectDots.push([coords[0], coords[1]]);
-                    rectDots.push([coords[2], coords[3]]);
-                    drawRect(ctxDraw);
-                    highlightRect(ctxDraw);
-                }   
+                        // не допустить удаления остальных боксов в случае пересечения с выбранным
+                        redrawCanvas(key, target);
+                        type === 'boxes' ? displayBoxList(basePoints, 'basePoint') : displayBoxList(boxes, 'boxes')
+                        let coords = percentToCoords(val);
+                        rectDots.push([coords[0], coords[1]]);
+                        rectDots.push([coords[2], coords[3]]);
+                        drawRect(ctxDraw);
+                        highlightRect(ctxDraw);
+                    } 
+                } catch(e){}
             }
         }
         async function saveBox(key){
@@ -314,18 +422,41 @@
             boxes.set(key, val);
             let response = await fetchSetBox(key)
             if (response){
-                console.log(boxes);
                 // highlightRect(ctxDraw, defaultColor);
                 saveCanvas();
                 defaultValues();
-                editBoxBool = false;
+                editBool = false;
                 changeButtonsVisibility(true, key);
                 console.log('box saved');
             }
         }
 
-        async function fetchDelBox(key) {
-            let response = await fetch(`http://localhost:4997/delBox?box_id=${key}`, {
+        async function saveBasePoint() {
+            let basePoint = boxes.get('basePoint');
+            if (rectDots.length === 0){ alert('Обозначьте координаты точки на камере'); return;}
+            let val = coordsToPercent();
+            val.push('')
+            // try{
+            //     val.push(basePoints.get('basePoint')[5])
+            // } catch(e){}
+            
+            basePoints.set('basePoint', val)
+            console.log(basePoints);
+            let response = await fetchSetBasePoint()
+            if (response){
+                console.log(basePoints);
+                // highlightRect(ctxDraw, defaultColor);
+                saveCanvas();
+                defaultValues();
+                editBool = false;
+                changeButtonsVisibility(true, 'basePoint');
+                console.log('point saved');
+            }
+        }
+
+        async function fetchDel(key, target, type) {
+            let request = type === 'basePoint' ? 'delBasePoint' : 'delBox' 
+            let response = await fetch(`http://localhost:4997/${request}?id=${target.get(key).slice(-1)[0]}`, {
                 credentials: "include",
                 method: "GET", 
                 cors: "no-cors",
@@ -335,50 +466,62 @@
             })
             .then((response) => response.json())
             .then((response) => {
-                if (response['/delBox'] === true){
+                if (response[`/${request}`] === true){
                     console.log(response)
                     return true
                 } 
                 else{
                     console.log(response)
-                    alert(`Бокс не удален. Ошибка:\n${response['data']['description']}`)
+                    alert(`Объект не удален. Ошибка:\n${response['data']['description']}`)
                     return false
                 } 
             })
             return response
         }
 
-        async function delBox(key){
-            if (confirm('Подтвердить удаление бокса?')){
-                let response = await fetchDelBox(key)
+        async function del(key, type){
+            let target = type === 'boxes' ? boxes : basePoints 
+            if (confirm('Подтвердить удаление?')){
+                let response = await fetchDel(key, target, type)
+
                 if (response) {
-                    if (boxes.get(key).length > 0){
-                        setRectDots(boxes.get(key));
-                        removeBox(editBoxBool ? ctxDraw : ctx);
+                    if (target.get(key).length > 0){
+                        setRectDots(target.get(key));
+                        removeBox(editBool ? ctxDraw : ctx);
                     }
                     defaultValues();
-                    boxes.delete(key);
+                    target.delete(key);
                     $(`#boxRow_${key}`).remove();
-                    redrawCanvas(key);
-                    editBoxBool = false;
+                    redrawCanvas(key, target);
+                    type === 'boxes' ? displayBoxList(basePoints, 'basePoint') : displayBoxList(boxes, 'boxes')
+                    editBool = false;
                     changeButtonsVisibility(true, key)
-                    }
+                }
             }
         }
 
-        function displayBoxList(){
-            $('.boxesColumn').empty()
-            boxes.forEach(function(val, key, map){
+        function displayBoxList(target, type){
+            // console.log('boxes', boxes)
+            $(`#${type}`).empty()
+            target.forEach(function(val, key, map){
+                if (type === 'basePoint') key = 'basePoint'
                 defaultValues()
-                viewBoxes.push(key)
-                $('.boxesColumn').append(`<div class="boxRow" id='boxRow_${key}'>
+                // viewBoxes.push(key)
+                $(`#${type}`).append(`<div class="boxRow" id='boxRow_${key}'>
                     <input id="boxName_${key}" type="text" class="boxName w-50" onchange="" value="${val[4]}" disabled>
                     <div class="buttonsSector">
-                        <button id="edit_${key}" class="editBox btn btn-primary" onclick="editBox(${key})">edit</button>
-                        <button id="del_${key}" class="delBox btn btn-danger" onclick="delBox(${key})">del</button>
+                        <button id="edit_${key}" class="edit btn btn-primary" onclick="edit(${key}, '${type}')">edit</button>
+                        <button id="del_${key}" class="del btn btn-danger" onclick="del(${key}, '${type}')">del</button>
                         <button id="confirm_${key}" class="confirmBox btn btn-success" disabled onclick="saveBox(${key})">ok</button>
                     </div>
                   </div>`)
+                // console.log('type', type)
+                if (type === 'basePoint'){
+                    $('#boxName_basePoint').attr('disabled','disabled')
+                    $('#edit_basePoint').attr('onclick', `edit('${key}', '${type}')`)
+                    $('#del_basePoint').attr('onclick', `del('${key}', '${type}')`)
+                    $('#confirm_basePoint').attr('onclick', "saveBasePoint()")
+                } 
                 setRectDots(val);
                 drawRect(ctx);
                 defaultValues();
@@ -404,9 +547,9 @@
         }
         
 
-        function redrawCanvas(key){
+        function redrawCanvas(key, target){
             ctx.clearRect(0, 0, canvas.width, canvas.height);
-            boxes.forEach(function(val, key_redraw, map){
+            target.forEach(function(val, key_redraw, map){
                 if (key !== key_redraw){
                     setRectDots(val);
                     drawRect(ctx);
@@ -451,7 +594,7 @@
             currentCtx.beginPath();
             drawCircle(currentCtx, rectDots[0][0], rectDots[0][1], color);
             drawCircle(currentCtx, rectDots[1][0], rectDots[1][1], color);
-            currentCtx.rect(rectDots[0][0], rectDots[0][1], rectDots[1][0]-rectDots[0][0], rectDots[1][1] - rectDots[0][1]);
+            currentCtx.rect(rectDots[0][0]+0.5, rectDots[0][1]+0.5, rectDots[1][0]-rectDots[0][0], rectDots[1][1] - rectDots[0][1]);
             currentCtx.strokeStyle = color;
             currentCtx.stroke();
             currentCtx.restore();
@@ -472,17 +615,17 @@
         function changeButtonsVisibility(visibility, key){
             if (visibility){
                 $('#clear_rect').css('display', 'none');
-                $('.editBox').removeAttr('disabled');
-                $('.delBox').removeAttr('disabled');
+                $('.edit').removeAttr('disabled');
+                $('.del').removeAttr('disabled');
                 $(`#confirm_${key}`).attr('disabled','disabled');
                 $(`#boxName_${key}`).attr('disabled','disabled');
             }
             else if (!visibility){
                 $('#clear_rect').css('display', 'inline-block');
-                $('.editBox').attr('disabled','disabled');
-                $('.delBox').attr('disabled','disabled');
+                $('.edit').attr('disabled','disabled');
+                $('.del').attr('disabled','disabled');
                 $(`#confirm_${key}`).removeAttr('disabled');
-                $(`#boxName_${key}`).removeAttr('disabled');
+                if (key !== 'basePoint') $(`#boxName_${key}`).removeAttr('disabled');
                 // $(`#edit_${key}`).removeAttr('disabled');
                 $(`#del_${key}`).removeAttr('disabled');
             }
@@ -509,13 +652,13 @@
                 let scaleX = canvasDraw.width / rect.width;     // Коэффициент масштабирования по X
                 let scaleY = canvasDraw.height / rect.height;   // Коэффициент масштабирования по Y
             
-                if (rectDots.length === 2 & editBoxBool){
+                if (rectDots.length === 2 & editBool){
                     removeBox();
                     defaultValues();
                 }
                 console.log('clickDraw')
-                if (rectDots.length < 2 & editBoxBool){
-                // if (rectDots.length < 2 && editBoxBool){
+                if (rectDots.length < 2 & editBool){
+                // if (rectDots.length < 2 && editBool){
                     let x = (e.clientX - rect.left) * scaleX;
                     let y = (e.clientY - rect.top) * scaleY;
                     console.log("x: " + x + " y: " + y);
@@ -539,6 +682,20 @@
             ctxDraw.clearRect(0, 0, canvasDraw.width, canvasDraw.height);
         }
 
+        async function imgContextMenu(){
+            canvasDraw.addEventListener('contextmenu', (event) => {
+                canvasDraw.style.pointerEvents = 'none';
+                canvas.style.pointerEvents = 'none';
+
+                setTimeout(() => {
+                    canvasDraw.style.pointerEvents = 'auto';
+                    canvas.style.pointerEvents = 'auto';
+                }, 0)
+
+                
+            });
+        }
+
         {% if cam is defined and cam %}
             
             {% if cam.getCamera() %}
@@ -551,13 +708,22 @@
             $('#cam_name').val(camera[0])
 
             {% for box in cam.getBoxes() %}
-            boxes.set({{box.id}}, [{{box.x1}}, {{box.y1}}, {{box.x2}}, {{box.y2}}, '{{box.name}}'] );
+            boxes.set({{box.id}}, [{{box.x1}}, {{box.y1}}, {{box.x2}}, {{box.y2}}, '{{box.name}}', {{box.id}}] );
             {% endfor %}
-            displayBoxList()
+            displayBoxList(boxes, 'boxes')
+
+            {% if cam.getBasePoint() %}
+            let basePointFromCam =  {{cam.getBasePoint().getInfo()}}
+            basePoints.set('basePoint', [basePointFromCam[0], basePointFromCam[1], basePointFromCam[2], basePointFromCam[3], '', basePointFromCam[5]], );
+            
+            {%endif%}
+            displayBoxList(basePoints, 'basePoint')
+            
             
         {% endif %}
         checkChange()
         drawUp()
+        imgContextMenu()
 
         
     </script>

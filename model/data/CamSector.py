@@ -19,7 +19,7 @@ class CamSector(BaseData):
         with DBSessionMaker.getSession() as ses:
             return ses.query(Box).filter_by(cam_sector_id=self.id).all()
         
-    def getBasePoint(self) -> List[Box]:
+    def getBasePoint(self) -> BasePoint:
         with DBSessionMaker.getSession() as ses:
             return ses.query(BasePoint).filter_by(cam_sector_id=self.id).first()
         
