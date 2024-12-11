@@ -103,3 +103,14 @@ if __name__ == '__main__':
 
     
 
+def badMeasurementDBTest():
+    b = Box('test1',1,2,3,4)
+    b.setCamSectorById(4)
+    b.save()
+    b.addMeasurement('width', 10)
+    b.addMeasurement('width', 10)
+    b.addMeasurement('width', 10)
+    b.addMeasurement('width', 10)
+    
+    res = b.getMeasurements()
+    print(res)

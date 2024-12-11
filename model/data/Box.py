@@ -1,5 +1,6 @@
 from config import *
 from model.data.BaseData import *
+from model.data.Measurement import *
 
 class Box(BaseData):
     __tablename__ = 'box'
@@ -11,6 +12,8 @@ class Box(BaseData):
     x2 = Column(Double, nullable=False) # in percents
     y2 = Column(Double, nullable=False) # in percents
     cam_sector_id = Column(Integer, ForeignKey('cam_sector.id', ondelete="CASCADE"), nullable=False)
+    
+    measurements = relationship('Measurement', cascade="all,delete", backref='box', lazy='select')
     
     __table_args__ = (UniqueConstraint('cam_sector_id', 'name'), )
     
@@ -38,3 +41,15 @@ class Box(BaseData):
     def getInfo(self):
         return [self.name, self.x1, self.y1, self.x2, self.y2, self.id]
         
+    def addMeasurement(self, type:str, value:float) -> bool:
+        try:
+            measurement = Measurement(type, value, self.id)
+            measurement.save()
+        except Exception as e:
+            print('Exception:', e)
+            return False
+        return True
+    
+    def getMeasurements(self) -> list[Measurement]:
+        with DBSessionMaker.getSession() as ses:
+            return ses.query(Measurement).filter(Measurement.box_id == self.id).order_by(Measurement.id).all()
