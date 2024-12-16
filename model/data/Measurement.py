@@ -6,7 +6,7 @@ class Measurement(BaseData):
     
     
     type = Column(String, nullable=False)
-    value = Column(Double, nullable=False)
+    value = Column(Double)
     datetime = Column(DateTime(timezone=False), nullable=False)
 
     box_id = Column(Integer, ForeignKey('box.id', ondelete="CASCADE"), nullable=False)

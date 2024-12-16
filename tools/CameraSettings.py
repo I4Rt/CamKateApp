@@ -2,6 +2,7 @@ import numpy as np
 import cv2
 import glob
 import ast
+import math
 
 
 class CameraSettings():
@@ -53,6 +54,28 @@ class CameraSettings():
         print("camera matrix:\n", camera_matrix)
         print("distortion coefficients: ", dist_coefs.ravel())
         return camera_matrix.tolist(), dist_coefs.tolist()
+    
+    @classmethod
+    def calc_move_val(cls, dist, cur_pos, padding):
+        return int(round(padding*cur_pos/dist, 0))
+    
+    @classmethod
+    def removeErrorAngle(cls, raw_img):
+        deg_angle = 4.5
+        angle = deg_angle/180 * math.pi
+
+        img_h, img_w, img_dep = raw_img.shape
+        img_center = img_h // 2
+        img_h, img_w, img_center
+
+        padding_value = int(round(img_center * math.tan(angle), 0))
+        img_with_padding = np.zeros((img_h, img_w+padding_value*2, img_dep), dtype = np.uint8)
+
+        for i in range(img_with_padding.shape[0]):
+            pad = cls.calc_move_val(img_center, i, padding_value)
+            img_with_padding[i,pad:img_w+pad,:] = raw_img[i]
+        
+        return img_with_padding
 
     @classmethod
     def get_correct_img(cls, img, camera_matrix, dist_coefs):
@@ -67,6 +90,7 @@ class CameraSettings():
         newcameramtx, roi = cv2.getOptimalNewCameraMatrix(camera_matrix, dist_coefs, (w, h), 1, (w, h))
 
         dst = cv2.undistort(img, camera_matrix, dist_coefs, None, newcameramtx)
+        dst = cls.removeErrorAngle(dst)
 
         dst = cv2.cvtColor(dst, cv2.COLOR_BGR2RGB)
 

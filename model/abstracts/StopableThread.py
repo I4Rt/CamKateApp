@@ -20,7 +20,7 @@ class StopableThread(Thread):
                 self._target(*self._args, **self._kwargs)
                 sleep(self.__loop_interval)
         else:
-            self._target(self._args, **self._kwargs)
+            self._target(*self._args, **self._kwargs) # TODO: check it
     
     # def __del__(self):
     #     print("deleted StopableThread object", currentThread().ident)

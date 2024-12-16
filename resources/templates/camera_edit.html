@@ -10,7 +10,7 @@
     <div class="row">
         <div class="col-6">
             <div id="ggg" class="w-100 h-100" style="position: relative; max-height: 350px;" >
-                <img id="camera_img" src="../img/image2.png" alt="" class="camera_image">
+                <img id="camera_img" src="../img/cor_rotate.png" alt="" class="camera_image">
                 <canvas id="canvas" class="markup_area"></canvas>
                 <canvas id="canvas_draw" class="markup_area"></canvas>    
             </div>
@@ -139,7 +139,7 @@
                     'coefs': camera[1][2]
                 }
             }
-            console.log(data)
+            console.log('data to cam save', data)
 
             data = JSON.stringify(data)
 
@@ -168,9 +168,21 @@
                 } 
             })
         }
+
+        function strListToList(matrix){
+            console.log('matrix', matrix)
+            try{
+                console.log('new_matrix', matrix.slice(2, -2).split('},{').map(part => part.split(',').map(val => (val))))
+                return matrix.slice(2, -2).split('},{').map(part => part.split(',').map(val => (val)))
+            } catch(e){
+                return matrix
+            }
+        }
+
         async function saveCameraParams(){
             camera[0] = $('#cam_name')[0].value
-            camera[1] = [$('#cam_route')[0].value, camMatrix[0], camMatrix[1]]
+
+            camera[1] = [$('#cam_route')[0].value, strListToList(camMatrix[0]), strListToList(camMatrix[1])]
 
             let response = await fetchSetCameraSector()
             console.log(1)
@@ -482,7 +494,7 @@
         async function del(key, type){
             let target = type === 'boxes' ? boxes : basePoints 
             if (confirm('Подтвердить удаление?')){
-                let response = await fetchDel(key, target, type)
+                let response = typeof(key) == 'string' ? true : await fetchDel(key, target, type)
 
                 if (response) {
                     if (target.get(key).length > 0){
@@ -696,12 +708,23 @@
             });
         }
 
+        const camImg = document.getElementById('camera_img');
+        const drawDiv = document.getElementById('ggg');
+
+        camImg.onload = () => {
+            console.log('sdwsd')
+            drawDiv.style = `position: relative; max-height: ${camImg.height}px`
+        }
+
+        
+
         {% if cam is defined and cam %}
             
             {% if cam.getCamera() %}
                 camera = ['{{cam.name}}', {{cam.getCamera().getInfo() | tojson}}, {{cam.id}}]
                 $('#cam_route').val(camera[1][0])
                 $('#cam_coefs').text(`${camera[1][1]}\n${camera[1][2]}`)
+                camMatrix = [camera[1][1], camera[1][2]]
             {% else %}
                 camera = ['{{cam.name}}', []]
             {% endif %}

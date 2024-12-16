@@ -77,6 +77,8 @@ def setCameraSector():
     route = request.json['route']
     matrix = request.json['matrix']
     coefs = request.json['coefs']
+
+    print(matrix)
     
     # matrix check
     # try:
