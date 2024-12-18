@@ -24,8 +24,8 @@ if __name__ == "__main__":
         PictureCapture.setManager(MANAGER)
         defectsThread = DefectsThread()
         # FullAnalize.run()
-        defects_loop = asyncio.new_event_loop()
-        defects_loop.run_in_executor(None, defectsThread.run)
+        # defects_loop = asyncio.new_event_loop()
+        # defects_loop.run_in_executor(None, defectsThread.run)
         
         Base.metadata.create_all(e)
         app.run(host='0.0.0.0', port=4997, debug=False)

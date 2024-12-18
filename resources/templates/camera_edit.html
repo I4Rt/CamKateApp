@@ -109,6 +109,9 @@
                 console.log(response)
                document.getElementById('camera_img').src = `data:image/png;base64, ${response.data.b64img}`;
             })
+            .then(() => {
+                changeDivSize()
+            })
         }
             
         async function fetchSetCameraSector() {
@@ -708,13 +711,21 @@
             });
         }
 
-        const camImg = document.getElementById('camera_img');
-        const drawDiv = document.getElementById('ggg');
-        window.addEventListener('load', () => {
+        function changeDivSize(){
+            const camImg = document.getElementById('camera_img');
+            const drawDiv = document.getElementById('ggg');
+
             console.log('sdwsd')
             console.log('camImg.height', camImg.height)
             drawDiv.style = `position: relative; height: ${camImg.height}px !important`
+        }
 
+        const camImg = document.getElementById('camera_img');
+        const drawDiv = document.getElementById('ggg');
+
+        window.addEventListener('load', () => {
+            changeDivSize()
+            if (camImg.height !== drawDiv.height) changeDivSize()
         })
 
         {% if cam is defined and cam %}
