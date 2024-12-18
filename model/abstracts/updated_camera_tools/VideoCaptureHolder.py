@@ -39,8 +39,7 @@ class VideoCaptureHolder:
         #       интервалы неактивности, когда подключение 
         #       уже просто тупо ожидает удаления 
         # TODO: добавить проверку на существование route 
-        #       в списке под другим identifyer                         
-        
+        #       в списке под другим identifyer    
         if not (identifyer in list(self.__connections.keys())):
             self.__connections[identifyer] = PictureCaptureInfoSpace(route)
             self.__connections[identifyer].startCaptureing()

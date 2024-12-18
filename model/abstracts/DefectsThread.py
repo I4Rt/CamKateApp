@@ -3,6 +3,7 @@ from time import sleep
 from model.data.CamSector import *
 from web_contollers.api.main_rest_controller import *
 from model.abstracts.updated_camera_tools.CameraPictureGetter import *
+from tools import FullAnalize
 
 class DefectsThread(StopableThread):
 
@@ -20,11 +21,17 @@ class DefectsThread(StopableThread):
     @staticmethod
     def startThread():
         print('getBoxesFromCam')
-        camSecs = CamSector.getAll()
-        for camSec in camSecs:
-            cam = camSec.getCamera()
-            camSecBoxes = camSec.getBoxes()
-            res, pic, info = CameraPictureGetter.getPicture(cam)
+        while True:
+            print('run')
+            FullAnalize.run()
+            print('sleep')
+            sleep(5)
+        
+        # camSecs = CamSector.getAll()
+        # for camSec in camSecs:
+        #     cam = camSec.getCamera()
+        #     camSecBoxes = camSec.getBoxes()
+        #     res, pic, info = CameraPictureGetter.getPicture(cam)
 
-            print(camSecBoxes.x1, camSecBoxes.y1, camSecBoxes.x2, camSecBoxes.y2)
-        sleep(10)
+        #     print(camSecBoxes.x1, camSecBoxes.y1, camSecBoxes.x2, camSecBoxes.y2)
+        # sleep(10)

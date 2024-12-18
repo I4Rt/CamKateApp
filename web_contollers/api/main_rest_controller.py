@@ -25,14 +25,20 @@ def getCameraPicture():
             MAX_CONNECTIONS_RETRYS = 10
             res = 2 # start await value
             break_counter = 0
+
             while res == 2 and break_counter < MAX_CONNECTIONS_RETRYS:
+                print('getPicture')
                 res, pic, info = CameraPictureGetter.getPicture(cam)
                 sleep(1)
                 break_counter += 1
                 # here can be added check for case res is 1 but img is None
             print(3, res, type(pic))
-            correct_pic = CameraSettings.get_correct_img(pic, cam.camera_matrix, cam.coefs)
+
             if res == 1 and pic is not None:
+                # pic = cv2.imread('D:/GitHub/AnglesCamera/ready_20340101/image.png')
+                correct_pic = CameraSettings.get_correct_img(pic, cam.camera_matrix, cam.coefs)
+                # correct_pic = CameraSettings.removeErrorAngle(pic)
+
                 return {request.path: True, 'data': {'b64img': FileUtil.convertImageToBytes(correct_pic), 'code': 0}}
             elif res == 2:
                 return {request.path: False, 'data': {'description': 'Too long await time', 'code': 3}}

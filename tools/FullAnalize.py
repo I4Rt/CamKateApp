@@ -10,6 +10,8 @@ from pathlib import Path
 import math
 from model.data.CamSector import *
 from model.abstracts.updated_camera_tools.CameraPictureGetter import *
+from datetime import datetime
+from tools.CameraSettings import *
 
 def workWithLines(edges, img):
     rho = 1  # distance resolution in pixels of the Hough grid
@@ -112,10 +114,10 @@ def PIL_tranform(img, cor_light=None):
         light = np.array(blue).mean() 
         cor_light = light if light < 100 else light + 15 if light < 125 else light + 25
     blue_th = blue.point(lambda x: 255 if x < cor_light else 0)
-    
     blue_th = dilate(1, blue_th)
     blue_th = erode(2, blue_th)
     blue_th = dilate(1, blue_th)
+    
     # blue_th.show()
     # blue_th.save(path)
     return blue_th
@@ -152,7 +154,7 @@ def dilate(cycles, image):
     if type(image) == np.ndarray: image = Image.fromarray(image)
     # del black pixels
     for _ in range(cycles):
-         image = image.filter(ImageFilter.MaxFilter(3))
+        image = image.filter(ImageFilter.MaxFilter(3))
     return image
 
 def calc_move_val(dist, cur_pos, padding):
@@ -183,8 +185,12 @@ def getImg(cam):
         res, pic, info = CameraPictureGetter.getPicture(cam)
         sleep(1)
         break_counter += 1
-    print('break_counter', break_counter)
-    return res, pic
+    if res == 1 and pic is not None:
+        correct_pic = CameraSettings.get_correct_img(pic, cam.camera_matrix, cam.coefs)
+        print('break_counter', break_counter)
+        return res, correct_pic
+    else:
+        return res, None
 
 def analize_manhole(img):
     img = np.array(img)
@@ -223,32 +229,38 @@ def run():
         camSecBoxes = camSec.getBoxes()
         camSecBasePoint = camSec.getBasePoint()
         res, img = getImg(cam)
+        print('got img')
         if type(img) == np.ndarray:
             img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
             img = Image.fromarray(img)
+        if img is None:
+            print("can't get image")
+            continue
         # res = 1
         # img = Image.open('D:/GitHub/CamKateApp/resources/static/img/cor_rotate.png')
         # plt.imshow(img)
         # plt.show()
 
         if res == 1:
-            crop_img, coords = getPrepareImg(camSecBasePoint, img)
+            crop_img, coords = getPrepareImg(camSecBasePoint, img) # basePoint
             crop_img = PIL_tranform(crop_img, cor_light=115)
             min_lx_base_point = analize_manhole(crop_img)
+            
             if min_lx_base_point is not None:
                 min_lx_base_point = min_lx_base_point + coords[1] # coords of object + coords of crop img (top border)
                 print('min_lx_base_point on image', min_lx_base_point) 
-
+            
             for box in camSecBoxes:
                 crop_img, coords = getPrepareImg(box, img)
                 crop_img = PIL_tranform(crop_img)
                 
+                
                 final_img, defects, max_rx_box = analize(crop_img)
                 if defects is None:
-                    print('box not found')
-                    box.addMeasurement('top_defect', None)
-                    box.addMeasurement('bottom_defect', None)
-                    box.addMeasurement('distance to base point', None)
+                    print('box not found', datetime.now())
+                    # box.addMeasurement('top_defect', None)
+                    # box.addMeasurement('bottom_defect', None)
+                    # box.addMeasurement('distance to base point', None)
                     continue
                 final_img = cv2.cvtColor(final_img, cv2.COLOR_BGR2RGB)
                 final_img = Image.fromarray(final_img)
