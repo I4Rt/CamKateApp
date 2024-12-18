@@ -710,13 +710,11 @@
 
         const camImg = document.getElementById('camera_img');
         const drawDiv = document.getElementById('ggg');
-
-        camImg.onload = () => {
+        window.addEventListener('load', () => {
             console.log('sdwsd')
             drawDiv.style = `position: relative; max-height: ${camImg.height}px`
-        }
 
-        
+        })
 
         {% if cam is defined and cam %}
             
