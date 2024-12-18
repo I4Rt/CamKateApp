@@ -25,7 +25,7 @@ class DefectsThread(StopableThread):
             print('run')
             FullAnalize.run()
             print('sleep')
-            sleep(5)
+            sleep(60)
         
         # camSecs = CamSector.getAll()
         # for camSec in camSecs:

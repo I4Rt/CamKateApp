@@ -22,7 +22,7 @@ def getCameraPicture():
     if cs:
         cam = cs.getCamera()
         if cam:
-            MAX_CONNECTIONS_RETRYS = 10
+            MAX_CONNECTIONS_RETRYS = 20
             res = 2 # start await value
             break_counter = 0
 

@@ -55,6 +55,18 @@ class CameraSettings():
         print("camera matrix:\n", camera_matrix)
         print("distortion coefficients: ", dist_coefs.ravel())
         return camera_matrix.tolist(), dist_coefs.tolist()
+
+    @classmethod
+    def rotateImage(cls, raw_img):
+        if type(raw_img) == np.ndarray:
+            raw_img = cv2.cvtColor(raw_img, cv2.COLOR_BGR2RGB)
+            raw_img = Image.fromarray(raw_img)
+        raw_img = raw_img.rotate(angle=-12, expand=False)
+        raw_img = np.array(raw_img)
+        if raw_img.ndim == 3:
+            print('reformat')
+            raw_img = cv2.cvtColor(raw_img, cv2.COLOR_RGB2BGR)
+        return raw_img
     
     @classmethod
     def calc_move_val(cls, dist, cur_pos, padding):
@@ -65,14 +77,7 @@ class CameraSettings():
         deg_angle = 4.5
         angle = deg_angle/180 * math.pi
 
-        if type(raw_img) == np.ndarray:
-            raw_img = cv2.cvtColor(raw_img, cv2.COLOR_BGR2RGB)
-            raw_img = Image.fromarray(raw_img)
-        raw_img = raw_img.rotate(angle=-12, expand=False)
-        raw_img = np.array(raw_img)
-        if raw_img.ndim == 3:
-            print('reformat')
-            raw_img = cv2.cvtColor(raw_img, cv2.COLOR_RGB2BGR)
+        raw_img = cls.rotateImage(raw_img)
 
         img_h, img_w, img_dep = raw_img.shape
         img_center = img_h // 2

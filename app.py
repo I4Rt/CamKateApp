@@ -23,7 +23,6 @@ if __name__ == "__main__":
         MANAGER = Manager()
         PictureCapture.setManager(MANAGER)
         defectsThread = DefectsThread()
-        # FullAnalize.run()
         # defects_loop = asyncio.new_event_loop()
         # defects_loop.run_in_executor(None, defectsThread.run)
         
