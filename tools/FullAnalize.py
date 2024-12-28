@@ -253,36 +253,42 @@ def run():
                 print('min_lx_base_point on image', min_lx_base_point) 
             
             for box in camSecBoxes:
-                crop_img, coords = getPrepareImg(box, img)
-                crop_img = PIL_tranform(crop_img)
-                
-                
-                final_img, defects, max_rx_box = analize(crop_img)
-                if defects is None:
-                    print('box not found', datetime.now())
-                    # box.addMeasurement('top_defect', None)
-                    # box.addMeasurement('bottom_defect', None)
-                    # box.addMeasurement('distance to base point', None)
-                    continue
-                final_img = cv2.cvtColor(final_img, cv2.COLOR_BGR2RGB)
-                final_img = Image.fromarray(final_img)
-                final_img = final_img.rotate(-90, expand=True)
+                try:
+                    crop_img, coords = getPrepareImg(box, img)
+                    crop_img = PIL_tranform(crop_img)
+                    
+                    
+                    final_img, defects, max_rx_box = analize(crop_img)
+                    if defects is None:
+                        print('box not found', datetime.now())
+                        # box.addMeasurement('top_defect', None)
+                        # box.addMeasurement('bottom_defect', None)
+                        # box.addMeasurement('distance to base point', None)
+                        continue
+                    final_img = cv2.cvtColor(final_img, cv2.COLOR_BGR2RGB)
+                    final_img = Image.fromarray(final_img)
+                    final_img = final_img.rotate(-90, expand=True)
 
-                max_rx_box = coords[1] + max_rx_box  # coords of crop img (top border) + coords of object
-                if min_lx_base_point is not None:
-                    distance = (min_lx_base_point - max_rx_box) * 1.8
-                else:
-                    distance = None
-                # print('max_rx_box on image', max_rx_box)
-                
-                # plt.imshow(final_img)
-                # plt.show()
-                if defects[0] < 11 and defects[1] < 11:
-                    box.addMeasurement('top_defect', defects[0])
-                    box.addMeasurement('bottom_defect', defects[1])
-                    box.addMeasurement('distance to base point', distance)
-                    print(f'\nИскревление верхней стенки = {defects[0]} см\nИскревление нижней стенки = {defects[1]} см\nРасстояние от люка = {distance} см')
-                else:
-                    print(f'defect value more than 10, top: {defects[0]}, bottom: {defects[1]}')
+                    max_rx_box = coords[1] + max_rx_box  # coords of crop img (top border) + coords of object
+                    if min_lx_base_point is not None:
+                        distance = (min_lx_base_point - max_rx_box) * 1.8
+                    else:
+                        distance = None
+                    # print('max_rx_box on image', max_rx_box)
+                    
+                    # plt.imshow(final_img)
+                    # plt.show()
+                    try:
+                        if float(defects[0]) < 11 and float(defects[1]) < 11:
+                            box.addMeasurement('top_defect', defects[0])
+                            box.addMeasurement('bottom_defect', defects[1])
+                            box.addMeasurement('distance to base point', distance)
+                            print(f'\nИскревление верхней стенки = {defects[0]} см\nИскревление нижней стенки = {defects[1]} см\nРасстояние от люка = {distance} см')
+                        else:
+                            print(f'defect value more than 10, top: {defects[0]}, bottom: {defects[1]}')
+                    except Exception as e:
+                        print(e, f'\n{defects[0]}, {defects[1]}')
+                except Exception as e:
+                    print('camSecBoxes', e)
     print('finish')
     # sleep(10)

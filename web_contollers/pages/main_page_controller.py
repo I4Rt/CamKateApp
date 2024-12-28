@@ -1,6 +1,7 @@
 from datetime import datetime
 from flask import request, json, jsonify, make_response, Response, render_template,redirect
 from config import *
+from model.data.CamSector import *
 
 from model.data import *
 
@@ -34,5 +35,9 @@ def editCamera():
         return render_template('camera_edit.html', cam=camSearchResult)
     return f'no camera with id {requestedCamId}'
     
+@app.route('/getData', methods=['get'])
+@cross_origin()
+def getData():
     
-
+    camSecs = list(map(lambda x: [x.id, x.name], CamSector.getAll())) 
+    return render_template('get_csv.html', camSecs=camSecs)

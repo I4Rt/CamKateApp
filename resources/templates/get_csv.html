@@ -1,0 +1,136 @@
+
+{% extends 'base.html' %}
+{% block baseStyles %}
+    <style>
+        #devices>*:nth-child(odd){
+            background-color: rgb(182, 206, 213);
+        }
+        .csv_getter .col .row > *{
+            max-width: 120px;
+            height: 50px;
+        }
+        .csv_getter>.col>*{
+            margin-top: 10px
+        }
+        .dropdown-menu {         
+            max-height: 250px;
+            overflow-y: auto;
+        }
+    </style>
+{% endblock %}
+<!-- <!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Состояния</title>
+    <link href="../css/bootstrap.min.css"  rel="stylesheet" />
+    
+</head> -->
+<!-- <body> -->
+{% block main %}
+    <div class="container">
+        <div class="row" style="margin-top:25px;margin-left: 0px; font-weight:bold">
+            Выгрузка данных
+        </div>
+        <div id="expInfoDiv" class="row">
+            <div class="col-6">
+                <div class="dropdown">
+                    <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                      Список экспериментов
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="row csv_getter">
+            <div class="col" >
+                <div class="row" style="gap: 10px; flex-wrap:wrap;margin-left: 20px; align-items:center">
+                    <div>Внешний ID</div>
+                    <input id="exp_outer_id">
+                </div>
+                <div class="row" style="gap: 10px; flex-wrap:wrap; margin-left: 20px; align-items:center">
+                    <div >Начальное время</div>
+                    <input  type="date" id="date_selector_min">
+                </div>
+                <div class="row" style="gap: 10px; flex-wrap:wrap; margin-left: 20px; align-items:center">
+                    <div >Конечное время</div>
+                    <input  type="date" id="date_selector_max">
+                </div>
+                <button class="btn btn-secondary"  style="margin-left: 20px; width:250px" onclick="load_csv()">Выгрузить</button>
+            </div>
+        </div>
+        
+    </div>
+{%endblock%}
+    
+<!-- </body> -->
+{% block baseScripts %}
+<!-- <script src="../js/jquery-3.7.1.min.js"></script> -->
+<script>
+    let camSecs = []
+
+    function load_csv(){
+        let outer_id = $('#exp_outer_id').val()
+        console.log(outer_id)
+        let date_min = $('#date_selector_min').val()
+        let date_max = $('#date_selector_max').val()
+        if (date_min.length == 0 || date_max.length == 0 || outer_id.length == 0){
+            alert('Введите данные')
+        }
+        else{
+            let json_data = JSON.stringify({
+                "cam_sec_id": outer_id,
+                "begin_time": date_min,
+                "end_time": date_max
+            })
+            console.log(json_data)
+
+            $.ajax({
+                url: '/get_csv',
+                method: 'POST',
+                contentType: 'application/json',
+                data: json_data,
+                xhrFields: {
+                    responseType: 'blob'
+                },
+                success: function(data) {
+                    var url = window.URL.createObjectURL(data);
+                    var a = document.createElement('a');
+                    a.href = url;
+                    a.download = 'files.zip';
+                    document.body.append(a);
+                    a.click();
+                    a.remove();
+                    window.URL.revokeObjectURL(url);
+                },
+                error: function(xhr, status, error) {
+                    console.error('Скачивание не удалось:', status, error);
+                    alert("Нет данных по эксперименту за выбранный промежуток времени \nили номер эксперимента указан неверно")
+                }
+            });
+        }
+    }
+
+    function viewCamSecs(){
+        camSecs.forEach(function(val, index){
+            console.log("🚀 ~ camSecs.forEach ~ camSecs:", camSecs, val)
+            $('.dropdown-menu').append(`<li><a id="exp_${val[0]}" 
+                class="dropdown-item" href="#" onclick="chooseExperiment('${val[0]}')">Эксперимент ${val[0]}</a></li>`)
+        })
+    }
+
+    function chooseExperiment(value){
+        console.log(value)
+        $('#exp_outer_id')[0].value = value
+    }
+
+    {% if camSecs %}
+        camSecs = {{camSecs | tojson}}
+        viewCamSecs()
+    {% endif %}
+
+</script>
+{%endblock%}
+<!-- </html> -->

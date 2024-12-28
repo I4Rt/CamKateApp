@@ -4,10 +4,17 @@ from model.abstracts.updated_camera_tools.CameraPictureGetter import *
 from model.data.Camera import Camera
 from model.data.CamSector import CamSector
 from model.data.Box import Box
+from model.data.Measurement import Measurement
 from model.data.BasePoint import BasePoint
 from tools.FileUtil import FileUtil
 from tools.CameraSettings import CameraSettings
 import json
+from flask import request, send_file
+
+import io
+import csv
+import zipfile
+from datetime import timedelta
 
 @cross_origin
 @app.route('/getCameraPicture', methods=['POST']) 
@@ -219,4 +226,80 @@ def delBasePoint():
     basePointId = request.args['id']
     BasePoint.deleteByID(basePointId)
     return {request.path: True}
+
+@app.route('/get_csv', methods=['GET', 'POST'])
+@cross_origin()
+@exception_processing
+def test_download():
+    json_data = request.json
+    outer_id = json_data['cam_sec_id']
+    
+    begin_time = None
+    end_time = None
+    if 'begin_time' in json_data:
+        begin_time = json_data['begin_time']
+    if 'end_time' in json_data:
+        end_time = json_data['end_time']
+    
+    print(outer_id, type(outer_id))
+    try:
+        data = Measurement.getMeasurements(outer_id, begin_time, end_time)
+        print(data)
+    except Exception as e:
+        print(e)
+    data_len = len(data)
+    print(data_len)
+    if data_len == 0:
+        return {"status": False, "description":
+                "Нет данных по эксперименту за выбранный промежуток времени \n или номер эксперимента указан неверно" }
+    print('next')
+    proxy = io.StringIO()
+    writer = csv.writer(proxy)
+    zip_buffer = io.BytesIO()
+    mem = io.BytesIO()
+    start_date = data[0][2]
+    limit_len = 1000000 if (data_len > 1000000) else data_len
+    with zipfile.ZipFile(zip_buffer, 'w', zipfile.ZIP_DEFLATED) as zip_file:
+        for i, row in enumerate(data):
+            writer.writerow(row)
+            if i % limit_len == 0 and i > 0:
+                save_file(row, start_date, mem, proxy, zip_file)
+                proxy = io.StringIO()
+                writer = csv.writer(proxy)
+                mem = io.BytesIO()
+
+                try:
+                    start_date = data[i+1][2]
+                    print('try start_date', start_date)
+                    
+                except Exception as e:
+                    print('row', row)
+                    start_date = row[2]
+                    print(e)
+
+        print('\nfinal')
+        print('start_date', start_date)
+        print(row)
+        save_file(row, start_date, mem, proxy, zip_file)
+    zip_buffer.seek(0)
+
+    return send_file(
+        zip_buffer,
+        as_attachment=True,
+        download_name='files.zip',
+        mimetype='application/zip'
+    )
+
+def save_file(row, start_date, mem, proxy, zip_file):
+    end_date = row[2]
+    filename = f'file{start_date.day if len(str(start_date.day)) == 2 else "0"+str(start_date.day)}' + \
+        f'{start_date.month if len(str(start_date.month)) == 2 else "0"+str(start_date.month)}_' + \
+        f'{end_date.day if len(str(end_date.day)) == 2 else "0"+str(end_date.day)}' + \
+        f'{end_date.month if len(str(end_date.month)) == 2 else "0"+str(end_date.month)}.csv'
+    
+    mem.write(proxy.getvalue().encode())
+    zip_file.writestr(f'{filename}', mem.getvalue())
+
+    proxy.close()
+    mem.close()
     
