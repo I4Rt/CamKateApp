@@ -178,7 +178,7 @@ def remove_distortion(img, deg_angle):
     return img_with_padding
 
 def getImg(cam):
-    MAX_CONNECTIONS_RETRYS = 10
+    MAX_CONNECTIONS_RETRYS = 20
     res = 2 # start await value
     break_counter = 0
     while res == 2 and break_counter < MAX_CONNECTIONS_RETRYS:
@@ -199,11 +199,13 @@ def analize_manhole(img):
         img = cv2.cvtColor(img, cv2.COLOR_RGB2BGR)
     edges = transform_image(img)
     lines_lr, lx, rx, line_image = workWithLines(edges, img)
+    print('lines_lr', lines_lr, '\nlx', lx)
     if lines_lr is None:
+        return None
+    if len(lx) == 0:
         return None
     # plt.imshow(img)
     # plt.show()
-    print('lines_lr', lines_lr)
 
     min_lx = min(lx)
 
@@ -275,11 +277,12 @@ def run():
                 
                 # plt.imshow(final_img)
                 # plt.show()
-
-                box.addMeasurement('top_defect', defects[0])
-                box.addMeasurement('bottom_defect', defects[1])
-                box.addMeasurement('distance to base point', distance)
-                print(f'\nИскревление верхней стенки = {defects[0]} см\nИскревление нижней стенки = {defects[1]} см\nРасстояние от люка = {distance} см')
-
+                if defects[0] < 11 and defects[1] < 11:
+                    box.addMeasurement('top_defect', defects[0])
+                    box.addMeasurement('bottom_defect', defects[1])
+                    box.addMeasurement('distance to base point', distance)
+                    print(f'\nИскревление верхней стенки = {defects[0]} см\nИскревление нижней стенки = {defects[1]} см\nРасстояние от люка = {distance} см')
+                else:
+                    print(f'defect value more than 10, top: {defects[0]}, bottom: {defects[1]}')
     print('finish')
     # sleep(10)

@@ -6839,3 +6839,16 @@ INFO:werkzeug:127.0.0.1 - - [19/Dec/2024 04:41:12] "[36mGET /img/cor_rotate.png
 INFO:werkzeug:127.0.0.1 - - [19/Dec/2024 04:41:12] "[36mGET /img/logo.png HTTP/1.1[0m" 304 -
 INFO:werkzeug:127.0.0.1 - - [19/Dec/2024 04:41:15] "OPTIONS /getCameraPicture HTTP/1.1" 200 -
 INFO:werkzeug:127.0.0.1 - - [19/Dec/2024 04:41:20] "POST /getCameraPicture HTTP/1.1" 200 -
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:4997
+ * Running on http://10.128.141.239:4997
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug:127.0.0.1 - - [19/Dec/2024 04:44:41] "GET /editCamera?id=1 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [19/Dec/2024 04:44:41] "[36mGET /css/bootstrap.min.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [19/Dec/2024 04:44:41] "[36mGET /css/camera_edit_page_styles.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [19/Dec/2024 04:44:41] "[36mGET /css/base_styles.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [19/Dec/2024 04:44:41] "[36mGET /js/jquery-3.7.1.min.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [19/Dec/2024 04:44:41] "[33mGET /css/bootstrap.min.css.map HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [19/Dec/2024 04:44:41] "[36mGET /img/logo.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [19/Dec/2024 04:44:41] "[36mGET /img/cor_rotate.png HTTP/1.1[0m" 304 -
