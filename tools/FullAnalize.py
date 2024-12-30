@@ -282,7 +282,7 @@ def run():
                         if float(defects[0]) < 11 and float(defects[1]) < 11:
                             box.addMeasurement('top_defect', defects[0])
                             box.addMeasurement('bottom_defect', defects[1])
-                            box.addMeasurement('distance to base point', distance)
+                            box.addMeasurement('distance to base point', float(distance))
                             print(f'\nИскревление верхней стенки = {defects[0]} см\nИскревление нижней стенки = {defects[1]} см\nРасстояние от люка = {distance} см')
                         else:
                             print(f'defect value more than 10, top: {defects[0]}, bottom: {defects[1]}')
